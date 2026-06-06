@@ -384,17 +384,18 @@ gap:4px;
 }
 
 .oncall-item .oncall-actions button{
-background:none;
 border:none;
 cursor:pointer;
+padding:6px 12px;
+border-radius:4px;
 font-size:13px;
-padding:2px 5px;
+font-weight:bold;
 }
 
-.oncall-edit{color:#005599;}
-.oncall-del{color:#aa4444;}
-.oncall-edit:hover{color:#003366;}
-.oncall-del:hover{color:#cc0000;}
+.oncall-edit{background:#005599;color:white !important;}
+.oncall-del{background:#cc4444;color:white !important;}
+.oncall-edit:hover{background:#003366;}
+.oncall-del:hover{background:#aa0000;}
 
 /* Traffic News */
 .traffic-item{
@@ -627,31 +628,31 @@ referrerpolicy="no-referrer-when-downgrade"
 
 <div class="edu-section">
 <strong>1. Wound Care</strong>
-<div class="edu-item"><span class="edu-label">1a Pressure Injury</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button></div>
-<div class="edu-item"><span class="edu-label">1b Surgical Wound</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button></div>
-<div class="edu-item"><span class="edu-label">1c Packing Wound</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button></div>
-<div class="edu-item"><span class="edu-label">1d Scald Wound</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button></div>
+<div class="edu-item"><span class="edu-label">1a Pressure Injury</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
+<div class="edu-item"><span class="edu-label">1b Surgical Wound</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
+<div class="edu-item"><span class="edu-label">1c Packing Wound</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
+<div class="edu-item"><span class="edu-label">1d Scald Wound</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
 </div>
 
 <div class="edu-section">
 <strong>2. Central Line Care</strong>
-<div class="edu-item"><span class="edu-label">2a Hickman Line</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button></div>
-<div class="edu-item"><span class="edu-label">2b PICC</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button></div>
+<div class="edu-item"><span class="edu-label">2a Hickman Line</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
+<div class="edu-item"><span class="edu-label">2b PICC</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
 </div>
 
 <div class="edu-section">
 <strong>3. IP Antibiotics Injection</strong>
-<div class="edu-single"><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button></div>
+<div class="edu-single"><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
 </div>
 
 <div class="edu-section">
 <strong>4. TB Drug Preparation</strong>
-<div class="edu-single"><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button></div>
+<div class="edu-single"><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
 </div>
 
 <div class="edu-section">
 <strong>5. Drain Care</strong>
-<div class="edu-single"><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button></div>
+<div class="edu-single"><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
 </div>
 
 </div>
@@ -660,11 +661,11 @@ referrerpolicy="no-referrer-when-downgrade"
 <div id="contacts" class="section">
 <h3>Contact Directory</h3>
 
-<div class="card"><strong>TYH CNS</strong><br>2589-2280</div>
-<div class="card"><strong>Liaison Office</strong><br>2589-2300</div>
-<div class="card"><strong>ABD CNS</strong><br>2552-7099</div>
-<div class="card"><strong>CGAT</strong><br>2855-6144</div>
-<div class="card"><strong>ICDS</strong><br>2255-6743</div>
+<div class="card" style="position:relative;"><strong>TYH CNS</strong><br>2589-2280<button class="announce-del" onclick="this.parentElement.remove()">✖</button></div>
+<div class="card" style="position:relative;"><strong>Liaison Office</strong><br>2589-2300<button class="announce-del" onclick="this.parentElement.remove()">✖</button></div>
+<div class="card" style="position:relative;"><strong>ABD CNS</strong><br>2552-7099<button class="announce-del" onclick="this.parentElement.remove()">✖</button></div>
+<div class="card" style="position:relative;"><strong>CGAT</strong><br>2855-6144<button class="announce-del" onclick="this.parentElement.remove()">✖</button></div>
+<div class="card" style="position:relative;"><strong>ICDS</strong><br>2255-6743<button class="announce-del" onclick="this.parentElement.remove()">✖</button></div>
 
 <h4>Add New Contact</h4>
 <div id="contactsContainer"></div>
@@ -738,7 +739,7 @@ function addOncall(){
   item.innerHTML = '<div class="oncall-info"><strong>' + name.replace(/</g,"&lt;") + '</strong>' + (date ? ' — ' + date.replace(/</g,"&lt;") : '') + '</div>'
     + '<div class="oncall-actions">'
     + '<button class="oncall-edit" onclick="editOncall(this)">Edit</button>'
-    + '<button class="oncall-del" onclick="this.closest(\'.oncall-item\').remove();">\u2716</button>'
+    + '<button class="oncall-del" onclick="this.closest(\'.oncall-item\').remove();">Delete</button>'
     + '</div>';
   list.appendChild(item);
   nameInput.value = "";
@@ -767,7 +768,7 @@ function saveOncall(btn){
   item.innerHTML = '<div class="oncall-info"><strong>' + name.replace(/</g,"&lt;") + '</strong>' + (date ? ' — ' + date.replace(/</g,"&lt;") : '') + '</div>'
     + '<div class="oncall-actions">'
     + '<button class="oncall-edit" onclick="editOncall(this)">Edit</button>'
-    + '<button class="oncall-del" onclick="this.closest(\'.oncall-item\').remove();">\u2716</button>'
+    + '<button class="oncall-del" onclick="this.closest(\'.oncall-item\').remove();">Delete</button>'
     + '</div>';
 }
 
@@ -928,7 +929,13 @@ content.appendChild(addTeamBtn);
 function addSubteam(parent, letter, num){
 let sub=document.createElement("div");
 sub.className="subteam";
+sub.style.position="relative";
 sub.innerHTML="<strong>Subteam "+letter+num+"</strong>";
+let delSub=document.createElement("button");
+delSub.className="announce-del";
+delSub.textContent="\u2716";
+delSub.onclick=()=>sub.remove();
+sub.appendChild(delSub);
 let btn=document.createElement("button");
 btn.className="add-btn";
 btn.innerText="Add Patient";
@@ -940,6 +947,12 @@ parent.appendChild(sub);
 function addPatient(parent){
 let div=document.createElement("div");
 div.className="patient";
+div.style.position="relative";
+let del=document.createElement("button");
+del.className="announce-del";
+del.textContent="\u2716";
+del.onclick=()=>div.remove();
+div.appendChild(del);
 let ta=document.createElement("textarea");
 ta.placeholder="Patient details (max 500 characters)";
 ta.maxLength=500;
@@ -999,7 +1012,8 @@ function uploadEduFile(btn) {
 function addContact(){
 let div=document.createElement("div");
 div.className="card";
-div.innerHTML='<strong>Name</strong><input type="text"><strong>Phone</strong><input type="text">';
+div.style.position="relative";
+div.innerHTML='<button class="announce-del" onclick="this.parentElement.remove()">\u2716</button><strong>Name</strong><input type="text"><strong>Phone</strong><input type="text">';
 document.getElementById("contactsContainer").appendChild(div);
 }
 
@@ -1007,3 +1021,4 @@ document.getElementById("contactsContainer").appendChild(div);
 
 </body>
 </html>
+

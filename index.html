@@ -545,7 +545,7 @@ min-height:18px;
 </div>
 
 <div class="card">
-<h3>Sunday On Call Staff</h3>
+<h3>Sunday / PH On Call Staff</h3>
 <div id="oncallList"></div>
 <div style="display:flex;gap:6px;margin-top:8px;">
 <input type="text" id="oncallName" placeholder="Staff name" style="flex:1;margin:0;font-size:14px;">
@@ -626,7 +626,8 @@ referrerpolicy="no-referrer-when-downgrade"
 <div id="education" class="section">
 <h3>Education Resources</h3>
 
-<div class="edu-section">
+<div class="edu-section" style="position:relative;">
+<button class="announce-del" onclick="this.parentElement.remove()">✖</button>
 <strong>1. Wound Care</strong>
 <div class="edu-item"><span class="edu-label">1a Pressure Injury</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
 <div class="edu-item"><span class="edu-label">1b Surgical Wound</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
@@ -635,30 +636,36 @@ referrerpolicy="no-referrer-when-downgrade"
 <button class="add-btn" onclick="addEduItem(this)">Add</button>
 </div>
 
-<div class="edu-section">
+<div class="edu-section" style="position:relative;">
+<button class="announce-del" onclick="this.parentElement.remove()">✖</button>
 <strong>2. Central Line Care</strong>
 <div class="edu-item"><span class="edu-label">2a Hickman Line</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
 <div class="edu-item"><span class="edu-label">2b PICC</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
 <button class="add-btn" onclick="addEduItem(this)">Add</button>
 </div>
 
-<div class="edu-section">
+<div class="edu-section" style="position:relative;">
+<button class="announce-del" onclick="this.parentElement.remove()">✖</button>
 <strong>3. IP Antibiotics Injection</strong>
 <div class="edu-single"><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
 <button class="add-btn" onclick="addEduItem(this)">Add</button>
 </div>
 
-<div class="edu-section">
+<div class="edu-section" style="position:relative;">
+<button class="announce-del" onclick="this.parentElement.remove()">✖</button>
 <strong>4. TB Drug Preparation</strong>
 <div class="edu-single"><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
 <button class="add-btn" onclick="addEduItem(this)">Add</button>
 </div>
 
-<div class="edu-section">
+<div class="edu-section" style="position:relative;">
+<button class="announce-del" onclick="this.parentElement.remove()">✖</button>
 <strong>5. Drain Care</strong>
 <div class="edu-single"><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
 <button class="add-btn" onclick="addEduItem(this)">Add</button>
 </div>
+
+<button class="add-btn" style="margin-top:6px;" onclick="addEduSection()">Add Section</button>
 
 </div>
 
@@ -980,6 +987,21 @@ div.appendChild(counter);
 parent.appendChild(div);
 }
 
+/* Add Education Section */
+var eduSectionCount = 5;
+function addEduSection(){
+  eduSectionCount++;
+  var container = document.getElementById("education");
+  var addSectionBtn = container.querySelector(":scope > .add-btn");
+  var sec = document.createElement("div");
+  sec.className = "edu-section";
+  sec.style.position = "relative";
+  sec.innerHTML = '<button class="announce-del" onclick="this.parentElement.remove()">\u2716</button>'
+    + '<strong><input type="text" value="' + eduSectionCount + '. " placeholder="Section title..." style="border:none;background:transparent;font-size:14px;font-weight:bold;width:80%;margin:0;padding:0;"></strong>'
+    + '<button class="add-btn" onclick="addEduItem(this)">Add</button>';
+  container.insertBefore(sec, addSectionBtn);
+}
+
 /* Add Education Item */
 function addEduItem(btn){
   var section = btn.parentElement;
@@ -1039,4 +1061,3 @@ document.getElementById("contactsContainer").appendChild(div);
 
 </body>
 </html>
-

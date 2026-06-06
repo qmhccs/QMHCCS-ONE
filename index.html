@@ -364,6 +364,22 @@ font-size:13px;
 font-weight:bold;
 }
 
+/* Contact edit */
+.contact-edit-btn{
+background:#005599;
+color:white !important;
+border:none;
+cursor:pointer;
+padding:6px 12px;
+border-radius:4px;
+font-size:13px;
+font-weight:bold;
+position:absolute;
+top:6px;right:36px;
+}
+
+.contact-edit-btn:hover{background:#003366;}
+
 .district-edit-btn{background:#005599;color:white !important;}
 .district-del-btn{background:#cc4444;color:white !important;}
 .district-edit-btn:hover{background:#003366;}
@@ -737,11 +753,19 @@ referrerpolicy="no-referrer-when-downgrade"
 <div id="contacts" class="section">
 <h3>Contact Directory</h3>
 
-<div class="card" style="position:relative;"><strong>TYH CNS</strong><br>2589-2280<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
-<div class="card" style="position:relative;"><strong>Liaison Office</strong><br>2589-2300<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
-<div class="card" style="position:relative;"><strong>ABD CNS</strong><br>2552-7099<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
-<div class="card" style="position:relative;"><strong>CGAT</strong><br>2855-6144<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
-<div class="card" style="position:relative;"><strong>ICDS</strong><br>2255-6743<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
+<div class="card" style="position:relative;"><strong>TYH CNS</strong><br>2589-2280<button class="contact-edit-btn" onclick="editContact(this)">Edit</button><button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
+<div class="card" style="position:relative;"><strong>Liaison Office</strong><br>2589-2300<button class="contact-edit-btn" onclick="editContact(this)">Edit</button><button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
+<div class="card" style="position:relative;"><strong>ABD CNS</strong><br>2552-7099<button class="contact-edit-btn" onclick="editContact(this)">Edit</button><button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
+<div class="card" style="position:relative;"><strong>CGAT</strong><br>2855-6144<button class="contact-edit-btn" onclick="editContact(this)">Edit</button><button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
+<div class="card" style="position:relative;"><strong>ICDS</strong><br>2255-6743<button class="contact-edit-btn" onclick="editContact(this)">Edit</button><button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
+<div class="card" style="position:relative;"><strong>GaFD Nurse</strong><br>2255-1901<button class="contact-edit-btn" onclick="editContact(this)">Edit</button><button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
+<div class="card" style="position:relative;"><strong>SYPCC</strong><br>2859-8310<button class="contact-edit-btn" onclick="editContact(this)">Edit</button><button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
+<div class="card" style="position:relative;"><strong>GOSY Booking</strong><br>3543-5000<button class="contact-edit-btn" onclick="editContact(this)">Edit</button><button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
+<div class="card" style="position:relative;"><strong>GOKT Booking</strong><br>3543-5088<button class="contact-edit-btn" onclick="editContact(this)">Edit</button><button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
+<div class="card" style="position:relative;"><strong>GOAD</strong><br>3543-5011<button class="contact-edit-btn" onclick="editContact(this)">Edit</button><button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
+<div class="card" style="position:relative;"><strong>GOAL</strong><br>3543-5022<button class="contact-edit-btn" onclick="editContact(this)">Edit</button><button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
+<div class="card" style="position:relative;"><strong>Ambulance</strong><br>2735-3355<button class="contact-edit-btn" onclick="editContact(this)">Edit</button><button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
+<div class="card" style="position:relative;"><strong>K8A</strong><br>2255-3124<button class="contact-edit-btn" onclick="editContact(this)">Edit</button><button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
 
 <h4>Add New Contact</h4>
 <div id="contactsContainer"></div>
@@ -844,13 +868,13 @@ function saveAllData(){
     var inputs = card.querySelectorAll("input[type='text']");
     var strong = card.querySelector("strong");
     if(inputs.length >= 2){
-      conArr.push({ name: inputs[0].value, phone: inputs[1].value, editable: true });
+      conArr.push({ name: inputs[0].value, phone: inputs[1].value });
     } else if(strong){
       var phoneText = "";
       card.childNodes.forEach(function(n){
         if(n.nodeType === 3 && n.textContent.trim()) phoneText = n.textContent.trim();
       });
-      conArr.push({ name: strong.textContent, phone: phoneText, editable: false });
+      conArr.push({ name: strong.textContent, phone: phoneText });
     }
   });
   fbSave("contacts", conArr);
@@ -949,14 +973,9 @@ function restoreContacts(arr){
     var div = document.createElement("div");
     div.className = "card";
     div.style.position = "relative";
-    if(c.editable){
-      div.innerHTML = '<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">\u2716</button>'
-        + '<strong>Name</strong><input type="text" value="' + esc(c.name) + '">'
-        + '<strong>Phone</strong><input type="text" value="' + esc(c.phone) + '">';
-    } else {
-      div.innerHTML = '<strong>' + esc(c.name) + '</strong><br>' + esc(c.phone)
-        + '<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">\u2716</button>';
-    }
+    div.innerHTML = '<strong>' + esc(c.name) + '</strong><br>' + esc(c.phone)
+      + '<button class="contact-edit-btn" onclick="editContact(this)">Edit</button>'
+      + '<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">\u2716</button>';
     container.insertBefore(div, addTitle);
   });
 }
@@ -1421,12 +1440,60 @@ function uploadEduFile(btn){
 }
 
 /* ============ Contacts ============ */
+function createContactCard(name, phone, container){
+  var div=document.createElement("div");
+  div.className="card";
+  div.style.position="relative";
+  div.innerHTML='<strong>' + esc(name) + '</strong><br>' + esc(phone)
+    + '<button class="contact-edit-btn" onclick="editContact(this)">Edit</button>'
+    + '<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">\u2716</button>';
+  container.appendChild(div);
+}
+
 function addContact(){
   var div=document.createElement("div");
   div.className="card";
   div.style.position="relative";
-  div.innerHTML='<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">\u2716</button><strong>Name</strong><input type="text"><strong>Phone</strong><input type="text">';
+  div.innerHTML='<strong>Name</strong><input type="text" placeholder="Contact name..." style="font-size:14px;">'
+    + '<strong>Phone</strong><input type="text" placeholder="Phone number..." style="font-size:14px;">'
+    + '<button class="add-btn" style="position:absolute;top:6px;right:8px;margin:0;" onclick="saveNewContact(this)">Save</button>';
   document.getElementById("contactsContainer").appendChild(div);
+}
+
+function saveNewContact(btn){
+  var card = btn.parentElement;
+  var inputs = card.querySelectorAll("input[type='text']");
+  var name = inputs[0].value.trim();
+  var phone = inputs[1].value.trim();
+  if(!name) return;
+  card.innerHTML = '<strong>' + esc(name) + '</strong><br>' + esc(phone)
+    + '<button class="contact-edit-btn" onclick="editContact(this)">Edit</button>'
+    + '<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">\u2716</button>';
+  triggerAutoSave();
+}
+
+function editContact(btn){
+  var card = btn.parentElement;
+  var strong = card.querySelector("strong");
+  var oldName = strong ? strong.textContent : "";
+  var oldPhone = "";
+  card.childNodes.forEach(function(n){
+    if(n.nodeType === 3 && n.textContent.trim()) oldPhone = n.textContent.trim();
+  });
+  card.innerHTML = '<strong>Name</strong><input type="text" value="' + esc(oldName) + '" style="font-size:14px;">'
+    + '<strong>Phone</strong><input type="text" value="' + esc(oldPhone) + '" style="font-size:14px;">'
+    + '<button class="add-btn" style="position:absolute;top:6px;right:8px;margin:0;" onclick="saveEditContact(this)">Save</button>';
+}
+
+function saveEditContact(btn){
+  var card = btn.parentElement;
+  var inputs = card.querySelectorAll("input[type='text']");
+  var name = inputs[0].value.trim();
+  var phone = inputs[1].value.trim();
+  if(!name) return;
+  card.innerHTML = '<strong>' + esc(name) + '</strong><br>' + esc(phone)
+    + '<button class="contact-edit-btn" onclick="editContact(this)">Edit</button>'
+    + '<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">\u2716</button>';
   triggerAutoSave();
 }
 
@@ -1492,3 +1559,4 @@ startRealtimeListeners();
 
 </body>
 </html>
+

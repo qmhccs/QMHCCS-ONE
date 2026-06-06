@@ -287,6 +287,25 @@ margin:0;
 background:#227744;
 }
 
+.edu-item .edu-edit-btn,
+.edu-single .edu-edit-btn{
+flex:0 0 auto;
+background:#e6a800;
+color:white;
+border:none;
+padding:6px 10px;
+border-radius:4px;
+cursor:pointer;
+font-size:12px;
+font-weight:bold;
+margin:0;
+}
+
+.edu-item .edu-edit-btn:hover,
+.edu-single .edu-edit-btn:hover{
+background:#cc8f00;
+}
+
 /* Google Map */
 .map-container{
 width:100%;
@@ -674,39 +693,39 @@ referrerpolicy="no-referrer-when-downgrade"
 <div class="edu-section" style="position:relative;">
 <button class="announce-del" onclick="this.parentElement.remove()">✖</button>
 <strong>1. Wound Care</strong>
-<div class="edu-item"><span class="edu-label">1a Pressure Injury</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
-<div class="edu-item"><span class="edu-label">1b Surgical Wound</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
-<div class="edu-item"><span class="edu-label">1c Packing Wound</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
-<div class="edu-item"><span class="edu-label">1d Scald Wound</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
+<div class="edu-item"><span class="edu-label">1a Pressure Injury</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="edu-edit-btn" onclick="editEduItem(this)">Edit</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
+<div class="edu-item"><span class="edu-label">1b Surgical Wound</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="edu-edit-btn" onclick="editEduItem(this)">Edit</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
+<div class="edu-item"><span class="edu-label">1c Packing Wound</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="edu-edit-btn" onclick="editEduItem(this)">Edit</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
+<div class="edu-item"><span class="edu-label">1d Scald Wound</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="edu-edit-btn" onclick="editEduItem(this)">Edit</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
 <button class="add-btn" onclick="addEduItem(this)">Add</button>
 </div>
 
 <div class="edu-section" style="position:relative;">
 <button class="announce-del" onclick="this.parentElement.remove()">✖</button>
 <strong>2. Central Line Care</strong>
-<div class="edu-item"><span class="edu-label">2a Hickman Line</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
-<div class="edu-item"><span class="edu-label">2b PICC</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
+<div class="edu-item"><span class="edu-label">2a Hickman Line</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="edu-edit-btn" onclick="editEduItem(this)">Edit</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
+<div class="edu-item"><span class="edu-label">2b PICC</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="edu-edit-btn" onclick="editEduItem(this)">Edit</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
 <button class="add-btn" onclick="addEduItem(this)">Add</button>
 </div>
 
 <div class="edu-section" style="position:relative;">
 <button class="announce-del" onclick="this.parentElement.remove()">✖</button>
 <strong>3. IP Antibiotics Injection</strong>
-<div class="edu-single"><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
+<div class="edu-single"><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="edu-edit-btn" onclick="editEduItem(this)">Edit</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
 <button class="add-btn" onclick="addEduItem(this)">Add</button>
 </div>
 
 <div class="edu-section" style="position:relative;">
 <button class="announce-del" onclick="this.parentElement.remove()">✖</button>
 <strong>4. TB Drug Preparation</strong>
-<div class="edu-single"><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
+<div class="edu-single"><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="edu-edit-btn" onclick="editEduItem(this)">Edit</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
 <button class="add-btn" onclick="addEduItem(this)">Add</button>
 </div>
 
 <div class="edu-section" style="position:relative;">
 <button class="announce-del" onclick="this.parentElement.remove()">✖</button>
 <strong>5. Drain Care</strong>
-<div class="edu-single"><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
+<div class="edu-single"><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="edu-edit-btn" onclick="editEduItem(this)">Edit</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
 <button class="add-btn" onclick="addEduItem(this)">Add</button>
 </div>
 
@@ -912,6 +931,7 @@ function restoreEducation(arr){
         + '<input type="url" placeholder="' + esc(item.placeholder || "Paste link here...") + '" value="' + esc(item.url) + '">'
         + '<button class="open-btn" onclick="openEduLink(this)">Open</button>'
         + '<button class="upload-btn" onclick="uploadEduFile(this)">Upload</button>'
+        + '<button class="edu-edit-btn" onclick="editEduItem(this)">Edit</button>'
         + '<button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove();triggerAutoSave();">\u2716</button></div>';
     });
     h += '<button class="add-btn" onclick="addEduItem(this)">Add</button>';
@@ -1332,8 +1352,39 @@ function addEduItem(btn){
     +'<input type="url" placeholder="Paste link here...">'
     +'<button class="open-btn" onclick="openEduLink(this)">Open</button>'
     +'<button class="upload-btn" onclick="uploadEduFile(this)">Upload</button>'
+    +'<button class="edu-edit-btn" onclick="editEduItem(this)">Edit</button>'
     +'<button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove();triggerAutoSave();">\u2716</button>';
   section.insertBefore(div,btn);
+  triggerAutoSave();
+}
+
+function editEduItem(btn){
+  var item = btn.closest(".edu-item") || btn.closest(".edu-single");
+  var labelEl = item.querySelector(".edu-label");
+  var urlInput = item.querySelector("input[type='url']");
+  var oldLabel = "";
+  if(labelEl){
+    var labelInput = labelEl.querySelector("input");
+    oldLabel = labelInput ? labelInput.value : labelEl.textContent;
+  }
+  var oldUrl = urlInput ? urlInput.value : "";
+  item.innerHTML = '<div style="display:flex;flex-direction:column;gap:4px;flex:1;">'
+    + '<input type="text" class="edu-edit-label" value="' + esc(oldLabel) + '" placeholder="Item name..." style="margin:0;font-size:13px;">'
+    + '<input type="url" class="edu-edit-url" value="' + esc(oldUrl) + '" placeholder="Paste link here..." style="margin:0;font-size:13px;">'
+    + '</div>'
+    + '<button class="add-btn" style="margin:0;align-self:center;" onclick="saveEduItem(this)">Save</button>';
+}
+
+function saveEduItem(btn){
+  var item = btn.closest(".edu-item") || btn.closest(".edu-single");
+  var label = item.querySelector(".edu-edit-label").value.trim();
+  var url = item.querySelector(".edu-edit-url").value.trim();
+  item.innerHTML = '<span class="edu-label">' + esc(label || "Untitled") + '</span>'
+    + '<input type="url" placeholder="Paste link here..." value="' + esc(url) + '">'
+    + '<button class="open-btn" onclick="openEduLink(this)">Open</button>'
+    + '<button class="upload-btn" onclick="uploadEduFile(this)">Upload</button>'
+    + '<button class="edu-edit-btn" onclick="editEduItem(this)">Edit</button>'
+    + '<button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove();triggerAutoSave();">\u2716</button>';
   triggerAutoSave();
 }
 
@@ -1441,4 +1492,3 @@ startRealtimeListeners();
 
 </body>
 </html>
-

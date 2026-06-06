@@ -311,14 +311,63 @@ padding:6px 10px;
 font-size:13px;
 }
 
-/* District lists */
-#mapSection ul{
-padding-left:20px;
-line-height:1.7;
+/* District items */
+.district-item{
+background:#d9ecff;
+border-radius:6px;
+padding:8px 10px;
+margin-bottom:6px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-#mapSection li{
-margin-bottom:2px;
+.district-item .district-text{
+flex:1;
+font-size:14px;
+color:#223;
+word-break:break-word;
+}
+
+.district-item .district-actions{
+display:flex;
+gap:4px;
+flex-shrink:0;
+margin-left:8px;
+}
+
+.district-item .district-actions button{
+border:none;
+cursor:pointer;
+padding:6px 12px;
+border-radius:4px;
+font-size:13px;
+font-weight:bold;
+}
+
+.district-edit-btn{background:#005599;color:white !important;}
+.district-del-btn{background:#cc4444;color:white !important;}
+.district-edit-btn:hover{background:#003366;}
+.district-del-btn:hover{background:#aa0000;}
+
+/* Save indicator */
+.save-status{
+position:fixed;
+bottom:10px;
+right:10px;
+background:#228822;
+color:white;
+padding:6px 14px;
+border-radius:20px;
+font-size:12px;
+z-index:900;
+opacity:0;
+transition:opacity 0.3s;
+pointer-events:none;
+}
+
+.save-status.show{
+opacity:1;
 }
 
 /* Announcement Board */
@@ -500,6 +549,7 @@ min-height:18px;
 </div>
 </div>
 
+<div class="save-status" id="saveStatus">Saved ✓</div>
 <header>CNS-ONE</header>
 
 <nav>
@@ -570,48 +620,43 @@ referrerpolicy="no-referrer-when-downgrade"
 ></iframe>
 </div>
 
-<div class="card">
+<div class="card" id="districtCW">
 <h4 style="margin-top:0;color:#003366;">Central &amp; Western District (中西區)</h4>
-<p style="margin-bottom:4px;"><strong>Boundary:</strong></p>
-<ul style="margin-top:0;">
-<li><strong>West:</strong> From Victoria Road / Mount Davis to Kennedy Town waterfront</li>
-<li><strong>East:</strong> Along Canal Road Flyover / Arsenal Street boundary with Wan Chai District</li>
-<li><strong>North:</strong> Victoria Harbour waterfront (from Kennedy Town Praya to Admiralty)</li>
-<li><strong>South:</strong> Along The Peak / Hatton Road / Pok Fu Lam Road boundary with Southern District</li>
-</ul>
 <p style="margin-bottom:4px;"><strong>Key Areas:</strong></p>
 <p style="margin-top:0;">Kennedy Town, Sai Wan, Shek Tong Tsui, Sai Ying Pun, Sheung Wan, Central, Admiralty (west), Mid-Levels, The Peak</p>
-
 <p style="margin-bottom:4px;"><strong>Public Housing Estates:</strong></p>
-<ul style="margin-top:0;">
-<li>Sai Wan Estate (西環邨) — Kennedy Town</li>
-<li>Kwun Lung Lau (觀龍樓) — Kennedy Town</li>
-</ul>
+<p style="margin-top:0;">Sai Wan Estate (西環邨), Kwun Lung Lau (觀龍樓)</p>
+<div id="cwItems"></div>
+<div style="display:flex;gap:6px;margin-top:8px;">
+<input type="text" id="cwInput" placeholder="Add info..." style="flex:1;margin:0;font-size:14px;">
+<button class="add-btn" style="margin:0;" onclick="addDistrictItem('cw')">Add</button>
+</div>
 </div>
 
-<div class="card">
+<div class="card" id="districtSouth">
 <h4 style="margin-top:0;color:#003366;">Southern District (南區)</h4>
-<p style="margin-bottom:4px;"><strong>Boundary:</strong></p>
-<ul style="margin-top:0;">
-<li><strong>North:</strong> Along Pok Fu Lam Road / The Peak / Wong Nai Chung Gap / Tai Tam Road boundary with Central &amp; Western and Wan Chai Districts</li>
-<li><strong>East:</strong> From Tai Tam to Shek O, including D'Aguilar Peninsula</li>
-<li><strong>South:</strong> South China Sea coastline</li>
-<li><strong>West:</strong> Pok Fu Lam / Victoria Road boundary with Central &amp; Western District</li>
-</ul>
 <p style="margin-bottom:4px;"><strong>Key Areas:</strong></p>
 <p style="margin-top:0;">Pok Fu Lam, Aberdeen, Ap Lei Chau, Wong Chuk Hang, Shouson Hill, Deep Water Bay, Repulse Bay, Stanley, Tai Tam, Shek O, Chung Hom Kok</p>
-
 <p style="margin-bottom:4px;"><strong>Public Housing Estates:</strong></p>
-<ul style="margin-top:0;">
-<li>Wah Fu (I) Estate (華富(一)邨) — Pok Fu Lam</li>
-<li>Wah Fu (II) Estate (華富(二)邨) — Pok Fu Lam</li>
-<li>Wah Kwai Estate (華貴邨) — Pok Fu Lam</li>
-<li>Shek Pai Wan Estate (石排灣邨) — Aberdeen</li>
-<li>Tin Wan Estate (田灣邨) — Aberdeen</li>
-<li>Yue Kwong Chuen (漁光村) — Aberdeen</li>
-<li>Ap Lei Chau Estate (鴨脷洲邨) — Ap Lei Chau</li>
-<li>Lei Tung Estate (利東邨) — Ap Lei Chau</li>
-</ul>
+<p style="margin-top:0;">Wah Fu (I) Estate (華富一邨), Wah Fu (II) Estate (華富二邨), Wah Kwai Estate (華貴邨), Shek Pai Wan Estate (石排灣邨), Tin Wan Estate (田灣邨), Yue Kwong Chuen (漁光村), Ap Lei Chau Estate (鴨脷洲邨), Lei Tung Estate (利東邨)</p>
+<div id="southItems"></div>
+<div style="display:flex;gap:6px;margin-top:8px;">
+<input type="text" id="southInput" placeholder="Add info..." style="flex:1;margin:0;font-size:14px;">
+<button class="add-btn" style="margin:0;" onclick="addDistrictItem('south')">Add</button>
+</div>
+</div>
+
+<div class="card" id="districtEast">
+<h4 style="margin-top:0;color:#003366;">Eastern District (東區)</h4>
+<p style="margin-bottom:4px;"><strong>Key Areas:</strong></p>
+<p style="margin-top:0;">Tin Hau, Fortress Hill, North Point, Quarry Bay, Sai Wan Ho, Shau Kei Wan, Chai Wan, Siu Sai Wan, Heng Fa Chuen</p>
+<p style="margin-bottom:4px;"><strong>Public Housing Estates:</strong></p>
+<p style="margin-top:0;">Model Housing Estate (模範邨), Healthy Village (康東邨/康民邨), Ming Wah Dai Ha (明華大廈), Oi Tung Estate (愛東邨), Yue Wan Estate (漁灣邨), Siu Sai Wan Estate (小西灣邨), Hing Tung Estate (興東邨), Chai Wan Estate (柴灣邨), Lok Wah Estate (樂華邨), Wan Tsui Estate (環翠邨), Tsui Lok Estate (翠樂邨), Fung Wah Estate (豐華邨)</p>
+<div id="eastItems"></div>
+<div style="display:flex;gap:6px;margin-top:8px;">
+<input type="text" id="eastInput" placeholder="Add info..." style="flex:1;margin:0;font-size:14px;">
+<button class="add-btn" style="margin:0;" onclick="addDistrictItem('east')">Add</button>
+</div>
 </div>
 
 </div>
@@ -673,11 +718,11 @@ referrerpolicy="no-referrer-when-downgrade"
 <div id="contacts" class="section">
 <h3>Contact Directory</h3>
 
-<div class="card" style="position:relative;"><strong>TYH CNS</strong><br>2589-2280<button class="announce-del" onclick="this.parentElement.remove()">✖</button></div>
-<div class="card" style="position:relative;"><strong>Liaison Office</strong><br>2589-2300<button class="announce-del" onclick="this.parentElement.remove()">✖</button></div>
-<div class="card" style="position:relative;"><strong>ABD CNS</strong><br>2552-7099<button class="announce-del" onclick="this.parentElement.remove()">✖</button></div>
-<div class="card" style="position:relative;"><strong>CGAT</strong><br>2855-6144<button class="announce-del" onclick="this.parentElement.remove()">✖</button></div>
-<div class="card" style="position:relative;"><strong>ICDS</strong><br>2255-6743<button class="announce-del" onclick="this.parentElement.remove()">✖</button></div>
+<div class="card" style="position:relative;"><strong>TYH CNS</strong><br>2589-2280<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
+<div class="card" style="position:relative;"><strong>Liaison Office</strong><br>2589-2300<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
+<div class="card" style="position:relative;"><strong>ABD CNS</strong><br>2552-7099<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
+<div class="card" style="position:relative;"><strong>CGAT</strong><br>2855-6144<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
+<div class="card" style="position:relative;"><strong>ICDS</strong><br>2255-6743<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">✖</button></div>
 
 <h4>Add New Contact</h4>
 <div id="contactsContainer"></div>
@@ -685,11 +730,299 @@ referrerpolicy="no-referrer-when-downgrade"
 
 </div>
 
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+
 <script>
 
-/* Login */
-var APP_PASSWORD = "qmhccs";
+/* ============ Firebase Realtime Database ============ */
+var firebaseConfig = {
+  apiKey: "AIzaSyDXQSZu3IvimR2HdpdULjTnF76H5PCUIOI",
+  authDomain: "qmh-ccs.firebaseapp.com",
+  databaseURL: "https://qmh-ccs-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "qmh-ccs",
+  storageBucket: "qmh-ccs.firebasestorage.app",
+  messagingSenderId: "1086418646356",
+  appId: "1:1086418646356:web:81008c79da74fd937f04c1"
+};
+firebase.initializeApp(firebaseConfig);
+var fbDB = firebase.database();
+var isRestoring = false;
 
+function fbSave(key, val){
+  fbDB.ref(key).set(val);
+}
+
+/* Save flash indicator */
+function showSaved(){
+  var el = document.getElementById("saveStatus");
+  el.textContent = "Synced ✓";
+  el.classList.add("show");
+  setTimeout(function(){ el.classList.remove("show"); }, 1500);
+}
+
+/* Auto-save debounce */
+var saveTimer;
+function triggerAutoSave(){
+  if(isRestoring) return;
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(function(){ saveAllData(); }, 800);
+}
+
+function esc(s){ return s ? String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;") : ""; }
+
+/* ============ Collect & Save All Data ============ */
+function saveAllData(){
+  if(isRestoring) return;
+
+  /* Announcements */
+  var annArr = [];
+  document.querySelectorAll("#announceList .announce-item").forEach(function(el){
+    var msg = el.querySelector(".announce-msg");
+    var time = el.querySelector(".announce-time");
+    if(msg) annArr.push({ msg: msg.textContent, time: time ? time.textContent : "" });
+  });
+  fbSave("announcements", annArr);
+
+  /* On Call Staff */
+  var ocArr = [];
+  document.querySelectorAll("#oncallList .oncall-item").forEach(function(el){
+    var info = el.querySelector(".oncall-info");
+    if(info){
+      var parts = info.textContent.split(" \u2014 ");
+      ocArr.push({ name: parts[0].trim(), date: parts[1] ? parts[1].trim() : "" });
+    }
+  });
+  fbSave("oncall", ocArr);
+
+  /* Education */
+  var eduArr = [];
+  document.querySelectorAll("#education .edu-section").forEach(function(sec){
+    var titleEl = sec.querySelector("strong");
+    var title = "";
+    var titleInput = titleEl ? titleEl.querySelector("input") : null;
+    if(titleInput) title = titleInput.value;
+    else if(titleEl) title = titleEl.textContent;
+    var items = [];
+    sec.querySelectorAll(".edu-item, .edu-single").forEach(function(item){
+      var label = "";
+      var labelSpan = item.querySelector(".edu-label");
+      if(labelSpan){
+        var labelInput = labelSpan.querySelector("input");
+        label = labelInput ? labelInput.value : labelSpan.textContent;
+      }
+      var urlInput = item.querySelector("input[type='url']");
+      items.push({ label: label, url: urlInput ? urlInput.value : "", placeholder: urlInput ? urlInput.placeholder : "" });
+    });
+    eduArr.push({ title: title, items: items });
+  });
+  fbSave("education", eduArr);
+
+  /* Contacts */
+  var conArr = [];
+  document.querySelectorAll("#contacts .card").forEach(function(card){
+    var inputs = card.querySelectorAll("input[type='text']");
+    var strong = card.querySelector("strong");
+    if(inputs.length >= 2){
+      conArr.push({ name: inputs[0].value, phone: inputs[1].value, editable: true });
+    } else if(strong){
+      var phoneText = "";
+      card.childNodes.forEach(function(n){
+        if(n.nodeType === 3 && n.textContent.trim()) phoneText = n.textContent.trim();
+      });
+      conArr.push({ name: strong.textContent, phone: phoneText, editable: false });
+    }
+  });
+  fbSave("contacts", conArr);
+
+  /* Teams */
+  var teamData = {};
+  document.querySelectorAll("#teams .team-header").forEach(function(header){
+    var letter = header.textContent.replace("Team ","").trim();
+    var content = header.nextElementSibling;
+    var subs = [];
+    if(content){
+      content.querySelectorAll(".subteam").forEach(function(sub){
+        var stTitle = sub.querySelector("strong");
+        var patients = [];
+        sub.querySelectorAll(".patient textarea").forEach(function(ta){
+          patients.push(ta.value);
+        });
+        subs.push({ title: stTitle ? stTitle.textContent : "", patients: patients });
+      });
+    }
+    teamData[letter] = subs;
+  });
+  fbSave("teams", teamData);
+
+  /* Districts (Map) */
+  var districts = {};
+  ["cw","south","east"].forEach(function(d){
+    var items = [];
+    document.querySelectorAll("#" + d + "Items .district-item").forEach(function(el){
+      var textEl = el.querySelector(".district-text");
+      if(textEl) items.push(textEl.textContent);
+    });
+    districts[d] = items;
+  });
+  fbSave("districts", districts);
+
+  showSaved();
+}
+
+/* ============ Restore functions ============ */
+function restoreAnnouncements(arr){
+  if(!arr || !arr.length){ checkAnnounceEmpty(); return; }
+  var list = document.getElementById("announceList");
+  list.innerHTML = "";
+  arr.forEach(function(a){
+    var item = document.createElement("div");
+    item.className = "announce-item";
+    item.innerHTML = '<button class="announce-del" onclick="this.parentElement.remove();checkAnnounceEmpty();triggerAutoSave();">\u2716</button>'
+      + '<div class="announce-msg">' + esc(a.msg) + '</div>'
+      + '<div class="announce-time">' + esc(a.time) + '</div>';
+    list.appendChild(item);
+  });
+  checkAnnounceEmpty();
+}
+
+function restoreOncall(arr){
+  var list = document.getElementById("oncallList");
+  list.innerHTML = "";
+  if(!arr || !arr.length) return;
+  arr.forEach(function(o){ createOncallItem(list, o.name, o.date); });
+}
+
+function restoreEducation(arr){
+  if(!arr || !arr.length) return;
+  var container = document.getElementById("education");
+  var addSectionBtn = container.querySelector(":scope > .add-btn");
+  container.querySelectorAll(".edu-section").forEach(function(s){ s.remove(); });
+  eduSectionCount = 0;
+  arr.forEach(function(sec){
+    eduSectionCount++;
+    var div = document.createElement("div");
+    div.className = "edu-section";
+    div.style.position = "relative";
+    var h = '<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">\u2716</button>'
+      + '<strong>' + esc(sec.title) + '</strong>';
+    if(sec.items) sec.items.forEach(function(item){
+      h += '<div class="edu-item"><span class="edu-label">' + esc(item.label) + '</span>'
+        + '<input type="url" placeholder="' + esc(item.placeholder || "Paste link here...") + '" value="' + esc(item.url) + '">'
+        + '<button class="open-btn" onclick="openEduLink(this)">Open</button>'
+        + '<button class="upload-btn" onclick="uploadEduFile(this)">Upload</button>'
+        + '<button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove();triggerAutoSave();">\u2716</button></div>';
+    });
+    h += '<button class="add-btn" onclick="addEduItem(this)">Add</button>';
+    div.innerHTML = h;
+    container.insertBefore(div, addSectionBtn);
+  });
+}
+
+function restoreContacts(arr){
+  if(!arr || !arr.length) return;
+  var container = document.getElementById("contacts");
+  container.querySelectorAll(".card").forEach(function(c){ c.remove(); });
+  var addTitle = container.querySelector("h4");
+  arr.forEach(function(c){
+    var div = document.createElement("div");
+    div.className = "card";
+    div.style.position = "relative";
+    if(c.editable){
+      div.innerHTML = '<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">\u2716</button>'
+        + '<strong>Name</strong><input type="text" value="' + esc(c.name) + '">'
+        + '<strong>Phone</strong><input type="text" value="' + esc(c.phone) + '">';
+    } else {
+      div.innerHTML = '<strong>' + esc(c.name) + '</strong><br>' + esc(c.phone)
+        + '<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">\u2716</button>';
+    }
+    container.insertBefore(div, addTitle);
+  });
+}
+
+function restoreTeams(data){
+  if(!data) return;
+  Object.keys(data).forEach(function(letter){
+    var subs = data[letter];
+    if(!subs || !subs.length) return;
+    var headers = document.querySelectorAll("#teams .team-header");
+    headers.forEach(function(header){
+      if(header.textContent.replace("Team ","").trim() !== letter) return;
+      var content = header.nextElementSibling;
+      var addBtn = content.querySelector(":scope > .add-btn");
+      content.querySelectorAll(".subteam").forEach(function(s){ s.remove(); });
+      subteamCount[letter] = 0;
+      subs.forEach(function(sub){
+        subteamCount[letter]++;
+        var subDiv = document.createElement("div");
+        subDiv.className = "subteam";
+        subDiv.style.position = "relative";
+        subDiv.innerHTML = "<strong>" + esc(sub.title) + "</strong>";
+        var delSub = document.createElement("button");
+        delSub.className = "announce-del";
+        delSub.textContent = "\u2716";
+        delSub.onclick = function(){ subDiv.remove(); triggerAutoSave(); };
+        subDiv.appendChild(delSub);
+        if(sub.patients) sub.patients.forEach(function(pText){ addPatientWithText(subDiv, pText); });
+        var pbtn = document.createElement("button");
+        pbtn.className = "add-btn";
+        pbtn.innerText = "Add Patient";
+        pbtn.onclick = function(){ addPatient(subDiv); };
+        subDiv.appendChild(pbtn);
+        content.insertBefore(subDiv, addBtn);
+      });
+    });
+  });
+}
+
+function restoreDistricts(data){
+  if(!data) return;
+  ["cw","south","east"].forEach(function(d){
+    var list = document.getElementById(d + "Items");
+    list.innerHTML = "";
+    if(data[d] && data[d].length){
+      data[d].forEach(function(text){ createDistrictItem(list, text); });
+    }
+  });
+}
+
+/* ============ Firebase Real-time Listeners ============ */
+function startRealtimeListeners(){
+  fbDB.ref("announcements").on("value", function(snap){
+    isRestoring = true;
+    restoreAnnouncements(snap.val());
+    isRestoring = false;
+  });
+  fbDB.ref("oncall").on("value", function(snap){
+    isRestoring = true;
+    restoreOncall(snap.val());
+    isRestoring = false;
+  });
+  fbDB.ref("education").on("value", function(snap){
+    isRestoring = true;
+    restoreEducation(snap.val());
+    isRestoring = false;
+  });
+  fbDB.ref("contacts").on("value", function(snap){
+    isRestoring = true;
+    restoreContacts(snap.val());
+    isRestoring = false;
+  });
+  fbDB.ref("teams").on("value", function(snap){
+    isRestoring = true;
+    restoreTeams(snap.val());
+    isRestoring = false;
+  });
+  fbDB.ref("districts").on("value", function(snap){
+    isRestoring = true;
+    restoreDistricts(snap.val());
+    isRestoring = false;
+  });
+}
+
+/* ============ Login ============ */
+var APP_PASSWORD = "qmhccs";
 function checkLogin(){
   var pwd = document.getElementById("pwdInput").value;
   if(pwd === APP_PASSWORD){
@@ -700,13 +1033,13 @@ function checkLogin(){
   }
 }
 
-/* Navigation */
+/* ============ Navigation ============ */
 function showSection(id){
-document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.section').forEach(function(s){ s.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
 }
 
-/* Announcement Board */
+/* ============ Announcement Board ============ */
 function postAnnouncement(){
   var input = document.getElementById("announceText");
   var msg = input.value.trim();
@@ -716,12 +1049,13 @@ function postAnnouncement(){
   var list = document.getElementById("announceList");
   var item = document.createElement("div");
   item.className = "announce-item";
-  item.innerHTML = '<button class="announce-del" onclick="this.parentElement.remove();checkAnnounceEmpty();">\u2716</button>'
-    + '<div class="announce-msg">' + msg.replace(/</g,"&lt;").replace(/>/g,"&gt;") + '</div>'
+  item.innerHTML = '<button class="announce-del" onclick="this.parentElement.remove();checkAnnounceEmpty();triggerAutoSave();">\u2716</button>'
+    + '<div class="announce-msg">' + esc(msg) + '</div>'
     + '<div class="announce-time">' + time + '</div>';
   list.insertBefore(item, list.firstChild);
   input.value = "";
   checkAnnounceEmpty();
+  triggerAutoSave();
 }
 
 function checkAnnounceEmpty(){
@@ -729,7 +1063,7 @@ function checkAnnounceEmpty(){
   document.getElementById("announceEmpty").style.display = list.children.length ? "none" : "block";
 }
 
-/* Date auto-format DD/MM/YYYY */
+/* ============ Date auto-format ============ */
 function formatDateInput(el){
   var v = el.value.replace(/[^0-9]/g,"");
   if(v.length > 2) v = v.slice(0,2) + "/" + v.slice(2);
@@ -738,35 +1072,39 @@ function formatDateInput(el){
   el.value = v;
 }
 
-/* Sunday On Call Staff */
+/* ============ On Call Staff ============ */
+function createOncallItem(list, name, date){
+  var item = document.createElement("div");
+  item.className = "oncall-item";
+  item.innerHTML = '<div class="oncall-info"><strong>' + esc(name) + '</strong>' + (date ? ' \u2014 ' + esc(date) : '') + '</div>'
+    + '<div class="oncall-actions">'
+    + '<button class="oncall-edit" onclick="editOncall(this)">Edit</button>'
+    + '<button class="oncall-del" onclick="this.closest(\'.oncall-item\').remove();triggerAutoSave();">Delete</button>'
+    + '</div>';
+  list.appendChild(item);
+}
+
 function addOncall(){
   var nameInput = document.getElementById("oncallName");
   var dateInput = document.getElementById("oncallDate");
   var name = nameInput.value.trim();
   var date = dateInput.value.trim();
   if(!name) return;
-  var list = document.getElementById("oncallList");
-  var item = document.createElement("div");
-  item.className = "oncall-item";
-  item.innerHTML = '<div class="oncall-info"><strong>' + name.replace(/</g,"&lt;") + '</strong>' + (date ? ' — ' + date.replace(/</g,"&lt;") : '') + '</div>'
-    + '<div class="oncall-actions">'
-    + '<button class="oncall-edit" onclick="editOncall(this)">Edit</button>'
-    + '<button class="oncall-del" onclick="this.closest(\'.oncall-item\').remove();">Delete</button>'
-    + '</div>';
-  list.appendChild(item);
+  createOncallItem(document.getElementById("oncallList"), name, date);
   nameInput.value = "";
   dateInput.value = "";
+  triggerAutoSave();
 }
 
 function editOncall(btn){
   var item = btn.closest(".oncall-item");
   var info = item.querySelector(".oncall-info");
-  var parts = info.textContent.split(" — ");
+  var parts = info.textContent.split(" \u2014 ");
   var oldName = parts[0].trim();
   var oldDate = parts[1] ? parts[1].trim() : "";
   item.innerHTML = '<div style="display:flex;gap:4px;flex:1;align-items:center;">'
-    + '<input type="text" class="oncall-edit-name" value="' + oldName.replace(/"/g,"&quot;") + '" style="flex:1;margin:0;font-size:14px;">'
-    + '<input type="text" class="oncall-edit-date" value="' + oldDate.replace(/"/g,"&quot;") + '" placeholder="DD/MM/YYYY" maxlength="10" oninput="formatDateInput(this)" style="flex:1;margin:0;font-size:14px;">'
+    + '<input type="text" class="oncall-edit-name" value="' + esc(oldName) + '" style="flex:1;margin:0;font-size:14px;">'
+    + '<input type="text" class="oncall-edit-date" value="' + esc(oldDate) + '" placeholder="DD/MM/YYYY" maxlength="10" oninput="formatDateInput(this)" style="flex:1;margin:0;font-size:14px;">'
     + '<button class="add-btn" style="margin:0;" onclick="saveOncall(this)">Save</button>'
     + '</div>';
 }
@@ -777,14 +1115,15 @@ function saveOncall(btn){
   var name = wrapper.querySelector(".oncall-edit-name").value.trim();
   var date = wrapper.querySelector(".oncall-edit-date").value.trim();
   if(!name) return;
-  item.innerHTML = '<div class="oncall-info"><strong>' + name.replace(/</g,"&lt;") + '</strong>' + (date ? ' — ' + date.replace(/</g,"&lt;") : '') + '</div>'
+  item.innerHTML = '<div class="oncall-info"><strong>' + esc(name) + '</strong>' + (date ? ' \u2014 ' + esc(date) : '') + '</div>'
     + '<div class="oncall-actions">'
     + '<button class="oncall-edit" onclick="editOncall(this)">Edit</button>'
-    + '<button class="oncall-del" onclick="this.closest(\'.oncall-item\').remove();">Delete</button>'
+    + '<button class="oncall-del" onclick="this.closest(\'.oncall-item\').remove();triggerAutoSave();">Delete</button>'
     + '</div>';
+  triggerAutoSave();
 }
 
-/* Transport Dept Special Traffic News — Central, Western & Southern only */
+/* ============ Traffic News ============ */
 var TRAFFIC_KEYWORDS = ["central","western","sheung wan","sai ying pun","kennedy town","sai wan","shek tong tsui","mid-levels","the peak","admiralty","aberdeen","ap lei chau","wong chuk hang","repulse bay","stanley","pok fu lam","deep water bay","shek o","tai tam","wah fu","tin wan","pokfulam","south","southern","中西","南區","中環","西環","上環","西營盤","堅尼地城","香港仔","鴨脷洲","黃竹坑","薄扶林","淺水灣","赤柱","石澳","半山","山頂","金鐘"];
 
 function loadTraffic(){
@@ -813,234 +1152,216 @@ function loadTraffic(){
 }
 loadTraffic();
 
-/* Calendar */
-let hkHolidays=["2026-01-01","2026-02-17","2026-04-04","2026-05-01","2026-07-01","2026-10-01","2026-12-25"];
-let currentDate=new Date();
+/* ============ Calendar ============ */
+var hkHolidays=["2026-01-01","2026-02-17","2026-04-04","2026-05-01","2026-07-01","2026-10-01","2026-12-25"];
+var currentDate=new Date();
 
 function renderCalendar(){
-const year=currentDate.getFullYear();
-const month=currentDate.getMonth();
-document.getElementById("monthTitle").innerText=
-currentDate.toLocaleString('default',{month:'long'})+" "+year;
-
-const firstDay=new Date(year,month,1);
-const lastDay=new Date(year,month+1,0);
-const calendar=document.getElementById("calendar");
-calendar.innerHTML="";
-
-for(let i=0;i<firstDay.getDay();i++) calendar.innerHTML+="<div></div>";
-
-for(let d=1; d<=lastDay.getDate(); d++){
-let dateStr=year+"-"+String(month+1).padStart(2,'0')+"-"+String(d).padStart(2,'0');
-let day=document.createElement("div");
-day.className="day";
-day.innerText=d;
-
-if(hkHolidays.includes(dateStr)) day.classList.add("hkHoliday");
-
-calendar.appendChild(day);
-}
+  var year=currentDate.getFullYear();
+  var month=currentDate.getMonth();
+  document.getElementById("monthTitle").innerText=currentDate.toLocaleString('default',{month:'long'})+" "+year;
+  var firstDay=new Date(year,month,1);
+  var lastDay=new Date(year,month+1,0);
+  var calendar=document.getElementById("calendar");
+  calendar.innerHTML="";
+  for(var i=0;i<firstDay.getDay();i++) calendar.innerHTML+="<div></div>";
+  for(var d=1;d<=lastDay.getDate();d++){
+    var dateStr=year+"-"+String(month+1).padStart(2,'0')+"-"+String(d).padStart(2,'0');
+    var day=document.createElement("div");
+    day.className="day";
+    day.innerText=d;
+    if(hkHolidays.includes(dateStr)) day.classList.add("hkHoliday");
+    calendar.appendChild(day);
+  }
 }
 function changeMonth(dir){currentDate.setMonth(currentDate.getMonth()+dir);renderCalendar();}
 renderCalendar();
 
-/* HK Observatory Weather — brief: warnings + temp + humidity only */
+/* ============ Weather ============ */
 var HKO_BASE = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php";
 
-function loadWeather() {
+function loadWeather(){
   var container = document.getElementById("weatherContent");
   container.innerHTML = '<div class="weather-loading">Loading...</div>';
-
   Promise.all([
-    fetch(HKO_BASE + "?dataType=rhrread&lang=en").then(function(r){ return r.json(); }).catch(function(){ return null; }),
-    fetch(HKO_BASE + "?dataType=warningInfo&lang=en").then(function(r){ return r.json(); }).catch(function(){ return null; })
-  ]).then(function(res) {
-    renderWeather(res[0], res[1]);
-  }).catch(function() {
-    container.innerHTML = '<div class="weather-loading">Unable to load weather data.</div>';
-  });
+    fetch(HKO_BASE+"?dataType=rhrread&lang=en").then(function(r){return r.json();}).catch(function(){return null;}),
+    fetch(HKO_BASE+"?dataType=warningInfo&lang=en").then(function(r){return r.json();}).catch(function(){return null;})
+  ]).then(function(res){ renderWeather(res[0],res[1]); })
+  .catch(function(){ container.innerHTML='<div class="weather-loading">Unable to load weather data.</div>'; });
 }
 
-function renderWeather(rhr, warn) {
-  var container = document.getElementById("weatherContent");
-  var html = "";
-
-  /* Warnings */
-  if (warn && warn.details && warn.details.length > 0) {
-    warn.details.forEach(function(w) {
-      html += '<div class="wx-warn">' + (w.warningStatementCode || w.subtype || "Warning") + '</div>';
-    });
-  } else {
-    html += '<div class="wx-ok">No active warnings</div>';
+function renderWeather(rhr,warn){
+  var container=document.getElementById("weatherContent");
+  var html="";
+  if(warn&&warn.details&&warn.details.length>0){
+    warn.details.forEach(function(w){ html+='<div class="wx-warn">'+(w.warningStatementCode||w.subtype||"Warning")+'</div>'; });
+  } else { html+='<div class="wx-ok">No active warnings</div>'; }
+  var temp="—",humidity="—";
+  if(rhr){
+    if(rhr.temperature&&rhr.temperature.data){var s=rhr.temperature.data.find(function(d){return d.place==="Hong Kong Observatory";});temp=s?s.value:rhr.temperature.data[0].value;}
+    if(rhr.humidity&&rhr.humidity.data){var h=rhr.humidity.data.find(function(d){return d.place==="Hong Kong Observatory";});humidity=h?h.value:rhr.humidity.data[0].value;}
   }
-
-  /* Temp + Humidity */
-  var temp = "—";
-  var humidity = "—";
-
-  if (rhr) {
-    if (rhr.temperature && rhr.temperature.data) {
-      var s = rhr.temperature.data.find(function(d){ return d.place === "Hong Kong Observatory"; });
-      temp = s ? s.value : rhr.temperature.data[0].value;
-    }
-    if (rhr.humidity && rhr.humidity.data) {
-      var h = rhr.humidity.data.find(function(d){ return d.place === "Hong Kong Observatory"; });
-      humidity = h ? h.value : rhr.humidity.data[0].value;
-    }
-  }
-
-  html += '<div class="weather-row">';
-  html += '<div class="wx-val"><div class="num">' + temp + '°C</div><div class="lbl">Temperature</div></div>';
-  html += '<div class="wx-val"><div class="num">' + humidity + '%</div><div class="lbl">Humidity</div></div>';
-  html += '</div>';
-
-  /* Update time */
-  if (rhr && rhr.updateTime) {
-    var ut = new Date(rhr.updateTime);
-    html += '<div class="wx-time">Updated: ' + ut.toLocaleTimeString("en-HK", {hour:"2-digit", minute:"2-digit"}) + '</div>';
-  }
-
-  container.innerHTML = html;
+  html+='<div class="weather-row"><div class="wx-val"><div class="num">'+temp+'°C</div><div class="lbl">Temperature</div></div><div class="wx-val"><div class="num">'+humidity+'%</div><div class="lbl">Humidity</div></div></div>';
+  if(rhr&&rhr.updateTime){var ut=new Date(rhr.updateTime);html+='<div class="wx-time">Updated: '+ut.toLocaleTimeString("en-HK",{hour:"2-digit",minute:"2-digit"})+'</div>';}
+  container.innerHTML=html;
 }
-
 loadWeather();
 
-/* Teams */
+/* ============ Teams ============ */
 var subteamCount = {};
-const teamsContainer=document.getElementById("teams");
-["A","B","C","D","E","F"].forEach(letter=>{
-let header=document.createElement("div");
-header.className="team-header";
-header.innerText="Team "+letter;
-teamsContainer.appendChild(header);
-
-let content=document.createElement("div");
-content.style.display="none";
-teamsContainer.appendChild(content);
-
-header.onclick=()=>{content.style.display=content.style.display==="block"?"none":"block";};
-
-subteamCount[letter]=3;
-for(let i=1;i<=3;i++){
-addSubteam(content, letter, i);
-}
-
-let addTeamBtn=document.createElement("button");
-addTeamBtn.className="add-btn";
-addTeamBtn.style.marginBottom="10px";
-addTeamBtn.innerText="Add Team";
-addTeamBtn.onclick=()=>{
-subteamCount[letter]++;
-let idx=subteamCount[letter];
-addSubteam(content, letter, idx);
-content.insertBefore(content.lastElementChild, addTeamBtn);
-};
-content.appendChild(addTeamBtn);
+var teamsContainer=document.getElementById("teams");
+["A","B","C","D","E","F"].forEach(function(letter){
+  var header=document.createElement("div");
+  header.className="team-header";
+  header.innerText="Team "+letter;
+  teamsContainer.appendChild(header);
+  var content=document.createElement("div");
+  content.style.display="none";
+  teamsContainer.appendChild(content);
+  header.onclick=function(){content.style.display=content.style.display==="block"?"none":"block";};
+  subteamCount[letter]=3;
+  for(var i=1;i<=3;i++) addSubteam(content,letter,i);
+  var addTeamBtn=document.createElement("button");
+  addTeamBtn.className="add-btn";
+  addTeamBtn.style.marginBottom="10px";
+  addTeamBtn.innerText="Add Team";
+  addTeamBtn.onclick=function(){
+    subteamCount[letter]++;
+    addSubteam(content,letter,subteamCount[letter]);
+    content.insertBefore(content.lastElementChild,addTeamBtn);
+    triggerAutoSave();
+  };
+  content.appendChild(addTeamBtn);
 });
 
-function addSubteam(parent, letter, num){
-let sub=document.createElement("div");
-sub.className="subteam";
-sub.style.position="relative";
-sub.innerHTML="<strong>Subteam "+letter+num+"</strong>";
-let delSub=document.createElement("button");
-delSub.className="announce-del";
-delSub.textContent="\u2716";
-delSub.onclick=()=>sub.remove();
-sub.appendChild(delSub);
-let btn=document.createElement("button");
-btn.className="add-btn";
-btn.innerText="Add Patient";
-btn.onclick=()=>addPatient(sub);
-sub.appendChild(btn);
-parent.appendChild(sub);
+function addSubteam(parent,letter,num){
+  var sub=document.createElement("div");
+  sub.className="subteam";
+  sub.style.position="relative";
+  sub.innerHTML="<strong>Subteam "+letter+num+"</strong>";
+  var delSub=document.createElement("button");
+  delSub.className="announce-del";
+  delSub.textContent="\u2716";
+  delSub.onclick=function(){sub.remove();triggerAutoSave();};
+  sub.appendChild(delSub);
+  var btn=document.createElement("button");
+  btn.className="add-btn";
+  btn.innerText="Add Patient";
+  btn.onclick=function(){addPatient(sub);};
+  sub.appendChild(btn);
+  parent.appendChild(sub);
 }
 
 function addPatient(parent){
-let div=document.createElement("div");
-div.className="patient";
-div.style.position="relative";
-let del=document.createElement("button");
-del.className="announce-del";
-del.textContent="\u2716";
-del.onclick=()=>div.remove();
-div.appendChild(del);
-let ta=document.createElement("textarea");
-ta.placeholder="Patient details (max 500 characters)";
-ta.maxLength=500;
-ta.rows=2;
-ta.style.width="100%";
-ta.style.fontSize="14px";
-ta.style.resize="vertical";
-ta.oninput=function(){
-let counter=ta.parentElement.querySelector(".char-count");
-counter.textContent=ta.value.length+"/500";
-};
-div.appendChild(ta);
-let counter=document.createElement("div");
-counter.className="char-count";
-counter.style.fontSize="11px";
-counter.style.color="#668";
-counter.style.textAlign="right";
-counter.textContent="0/500";
-div.appendChild(counter);
-parent.appendChild(div);
+  var div=document.createElement("div");
+  div.className="patient";
+  div.style.position="relative";
+  var del=document.createElement("button");
+  del.className="announce-del";
+  del.textContent="\u2716";
+  del.onclick=function(){div.remove();triggerAutoSave();};
+  div.appendChild(del);
+  var ta=document.createElement("textarea");
+  ta.placeholder="Patient details (max 500 characters)";
+  ta.maxLength=500;ta.rows=2;
+  ta.style.width="100%";ta.style.fontSize="14px";ta.style.resize="vertical";
+  ta.oninput=function(){
+    var counter=ta.parentElement.querySelector(".char-count");
+    counter.textContent=ta.value.length+"/500";
+    triggerAutoSave();
+  };
+  div.appendChild(ta);
+  var counter=document.createElement("div");
+  counter.className="char-count";
+  counter.style.fontSize="11px";counter.style.color="#668";counter.style.textAlign="right";
+  counter.textContent="0/500";
+  div.appendChild(counter);
+  parent.appendChild(div);
+  triggerAutoSave();
 }
 
-/* Add Education Section */
+function addPatientWithText(parent, text){
+  var div=document.createElement("div");
+  div.className="patient";
+  div.style.position="relative";
+  var del=document.createElement("button");
+  del.className="announce-del";
+  del.textContent="\u2716";
+  del.onclick=function(){div.remove();triggerAutoSave();};
+  div.appendChild(del);
+  var ta=document.createElement("textarea");
+  ta.placeholder="Patient details (max 500 characters)";
+  ta.maxLength=500;ta.rows=2;
+  ta.style.width="100%";ta.style.fontSize="14px";ta.style.resize="vertical";
+  ta.value=text||"";
+  ta.oninput=function(){
+    var counter=ta.parentElement.querySelector(".char-count");
+    counter.textContent=ta.value.length+"/500";
+    triggerAutoSave();
+  };
+  div.appendChild(ta);
+  var counter=document.createElement("div");
+  counter.className="char-count";
+  counter.style.fontSize="11px";counter.style.color="#668";counter.style.textAlign="right";
+  counter.textContent=(text?text.length:0)+"/500";
+  div.appendChild(counter);
+  parent.appendChild(div);
+}
+
+/* ============ Education ============ */
 var eduSectionCount = 5;
 function addEduSection(){
   eduSectionCount++;
-  var container = document.getElementById("education");
-  var addSectionBtn = container.querySelector(":scope > .add-btn");
-  var sec = document.createElement("div");
-  sec.className = "edu-section";
-  sec.style.position = "relative";
-  sec.innerHTML = '<button class="announce-del" onclick="this.parentElement.remove()">\u2716</button>'
-    + '<strong><input type="text" value="' + eduSectionCount + '. " placeholder="Section title..." style="border:none;background:transparent;font-size:14px;font-weight:bold;width:80%;margin:0;padding:0;"></strong>'
-    + '<button class="add-btn" onclick="addEduItem(this)">Add</button>';
-  container.insertBefore(sec, addSectionBtn);
+  var container=document.getElementById("education");
+  var addSectionBtn=container.querySelector(":scope > .add-btn");
+  var sec=document.createElement("div");
+  sec.className="edu-section";
+  sec.style.position="relative";
+  sec.innerHTML='<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">\u2716</button>'
+    +'<strong><input type="text" value="'+eduSectionCount+'. " placeholder="Section title..." style="border:none;background:transparent;font-size:14px;font-weight:bold;width:80%;margin:0;padding:0;"></strong>'
+    +'<button class="add-btn" onclick="addEduItem(this)">Add</button>';
+  container.insertBefore(sec,addSectionBtn);
+  triggerAutoSave();
 }
 
-/* Add Education Item */
 function addEduItem(btn){
-  var section = btn.parentElement;
-  var div = document.createElement("div");
-  div.className = "edu-item";
-  div.innerHTML = '<span class="edu-label"><input type="text" placeholder="Item name..." style="flex:none;width:auto;margin:0;font-size:13px;"></span>'
-    + '<input type="url" placeholder="Paste link here...">'
-    + '<button class="open-btn" onclick="openEduLink(this)">Open</button>'
-    + '<button class="upload-btn" onclick="uploadEduFile(this)">Upload</button>'
-    + '<button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">\u2716</button>';
-  section.insertBefore(div, btn);
+  var section=btn.parentElement;
+  var div=document.createElement("div");
+  div.className="edu-item";
+  div.innerHTML='<span class="edu-label"><input type="text" placeholder="Item name..." style="flex:none;width:auto;margin:0;font-size:13px;"></span>'
+    +'<input type="url" placeholder="Paste link here...">'
+    +'<button class="open-btn" onclick="openEduLink(this)">Open</button>'
+    +'<button class="upload-btn" onclick="uploadEduFile(this)">Upload</button>'
+    +'<button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove();triggerAutoSave();">\u2716</button>';
+  section.insertBefore(div,btn);
+  triggerAutoSave();
 }
 
-/* Open Education Link */
-function openEduLink(btn) {
-  var input = btn.parentElement.querySelector("input[type='url']");
-  var url = input.value.trim();
-  if (!url) return;
-  if (!/^https?:\/\//i.test(url) && !/^blob:/i.test(url)) url = "https://" + url;
-  window.open(url, "_blank");
+function openEduLink(btn){
+  var input=btn.parentElement.querySelector("input[type='url']");
+  var url=input.value.trim();
+  if(!url) return;
+  if(!/^https?:\/\//i.test(url)&&!/^blob:/i.test(url)) url="https://"+url;
+  window.open(url,"_blank");
 }
 
-/* Upload Education File */
-function uploadEduFile(btn) {
-  var container = btn.parentElement;
-  var input = container.querySelector("input[type='url']");
-  var fileInput = document.createElement("input");
-  fileInput.type = "file";
-  fileInput.accept = ".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.jpg,.png,.mp4,.txt";
-  fileInput.style.display = "none";
-  fileInput.onchange = function() {
-    if (fileInput.files && fileInput.files[0]) {
-      var file = fileInput.files[0];
-      var blobUrl = URL.createObjectURL(file);
-      input.value = blobUrl;
-      input.placeholder = file.name;
-      btn.textContent = "Uploaded";
-      btn.style.background = "#227744";
-      setTimeout(function(){ btn.textContent = "Upload"; btn.style.background = ""; }, 2000);
+function uploadEduFile(btn){
+  var container=btn.parentElement;
+  var input=container.querySelector("input[type='url']");
+  var fileInput=document.createElement("input");
+  fileInput.type="file";
+  fileInput.accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.jpg,.png,.mp4,.txt";
+  fileInput.style.display="none";
+  fileInput.onchange=function(){
+    if(fileInput.files&&fileInput.files[0]){
+      var file=fileInput.files[0];
+      var blobUrl=URL.createObjectURL(file);
+      input.value=blobUrl;
+      input.placeholder=file.name;
+      btn.textContent="Uploaded";
+      btn.style.background="#227744";
+      setTimeout(function(){btn.textContent="Upload";btn.style.background="";},2000);
+      triggerAutoSave();
     }
     fileInput.remove();
   };
@@ -1048,16 +1369,76 @@ function uploadEduFile(btn) {
   fileInput.click();
 }
 
-/* Add Contact */
+/* ============ Contacts ============ */
 function addContact(){
-let div=document.createElement("div");
-div.className="card";
-div.style.position="relative";
-div.innerHTML='<button class="announce-del" onclick="this.parentElement.remove()">\u2716</button><strong>Name</strong><input type="text"><strong>Phone</strong><input type="text">';
-document.getElementById("contactsContainer").appendChild(div);
+  var div=document.createElement("div");
+  div.className="card";
+  div.style.position="relative";
+  div.innerHTML='<button class="announce-del" onclick="this.parentElement.remove();triggerAutoSave();">\u2716</button><strong>Name</strong><input type="text"><strong>Phone</strong><input type="text">';
+  document.getElementById("contactsContainer").appendChild(div);
+  triggerAutoSave();
 }
+
+/* ============ District Items (Map) ============ */
+function createDistrictItem(listEl, text){
+  var item = document.createElement("div");
+  item.className = "district-item";
+  item.innerHTML = '<div class="district-text">' + esc(text) + '</div>'
+    + '<div class="district-actions">'
+    + '<button class="district-edit-btn" onclick="editDistrictItem(this)">Edit</button>'
+    + '<button class="district-del-btn" onclick="this.closest(\'.district-item\').remove();triggerAutoSave();">Delete</button>'
+    + '</div>';
+  listEl.appendChild(item);
+}
+
+function addDistrictItem(district){
+  var input = document.getElementById(district + "Input");
+  var text = input.value.trim();
+  if(!text) return;
+  var list = document.getElementById(district + "Items");
+  createDistrictItem(list, text);
+  input.value = "";
+  triggerAutoSave();
+}
+
+function editDistrictItem(btn){
+  var item = btn.closest(".district-item");
+  var textEl = item.querySelector(".district-text");
+  var oldText = textEl.textContent;
+  item.innerHTML = '<div style="display:flex;gap:4px;flex:1;align-items:center;">'
+    + '<input type="text" class="district-edit-input" value="' + esc(oldText) + '" style="flex:1;margin:0;font-size:14px;">'
+    + '<button class="add-btn" style="margin:0;" onclick="saveDistrictItem(this)">Save</button>'
+    + '</div>';
+  var editInput = item.querySelector(".district-edit-input");
+  editInput.focus();
+  editInput.addEventListener("keydown", function(e){ if(e.key === "Enter") saveDistrictItem(item.querySelector(".add-btn")); });
+}
+
+function saveDistrictItem(btn){
+  var wrapper = btn.parentElement;
+  var item = wrapper.closest(".district-item");
+  var text = wrapper.querySelector(".district-edit-input").value.trim();
+  if(!text) return;
+  item.innerHTML = '<div class="district-text">' + esc(text) + '</div>'
+    + '<div class="district-actions">'
+    + '<button class="district-edit-btn" onclick="editDistrictItem(this)">Edit</button>'
+    + '<button class="district-del-btn" onclick="this.closest(\'.district-item\').remove();triggerAutoSave();">Delete</button>'
+    + '</div>';
+  triggerAutoSave();
+}
+
+/* ============ Global auto-save listeners ============ */
+document.addEventListener("input", function(e){
+  if(isRestoring) return;
+  var tag = e.target.tagName;
+  if(tag === "INPUT" || tag === "TEXTAREA") triggerAutoSave();
+});
+
+/* ============ Init: Start Firebase real-time listeners ============ */
+startRealtimeListeners();
 
 </script>
 
 </body>
 </html>
+

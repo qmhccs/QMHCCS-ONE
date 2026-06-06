@@ -53,6 +53,7 @@ width:100%;
 padding:6px;
 margin-top:4px;
 margin-bottom:8px;
+box-sizing:border-box;
 }
 
 .add-btn{
@@ -73,20 +74,9 @@ align-items:center;
 padding:6px 0;
 }
 
-.weather-row .wx-val{
-text-align:center;
-}
-
-.weather-row .wx-val .num{
-font-size:22px;
-font-weight:bold;
-color:#003366;
-}
-
-.weather-row .wx-val .lbl{
-font-size:11px;
-color:#446;
-}
+.weather-row .wx-val{text-align:center;}
+.weather-row .wx-val .num{font-size:22px;font-weight:bold;color:#003366;}
+.weather-row .wx-val .lbl{font-size:11px;color:#446;}
 
 .wx-warn{
 background:#ffe0e0;
@@ -99,11 +89,7 @@ color:#880000;
 font-weight:bold;
 }
 
-.wx-ok{
-color:#228822;
-font-size:13px;
-margin-bottom:6px;
-}
+.wx-ok{color:#228822;font-size:13px;margin-bottom:6px;}
 
 .weather-loading{
 text-align:center;
@@ -112,12 +98,7 @@ color:#336;
 font-size:14px;
 }
 
-.wx-time{
-font-size:11px;
-color:#668;
-text-align:right;
-margin-top:4px;
-}
+.wx-time{font-size:11px;color:#668;text-align:right;margin-top:4px;}
 
 .refresh-btn{
 background:none;
@@ -145,14 +126,7 @@ gap:5px;
 text-align:center;
 }
 
-.day{
-padding:8px;
-border-radius:6px;
-font-size:13px;
-cursor:pointer;
-background:#ffffff;
-}
-
+.day{padding:8px;border-radius:6px;font-size:13px;background:#ffffff;}
 .hkHoliday{background:#ffcccc;}
 
 /* Teams */
@@ -196,202 +170,64 @@ flex-wrap:wrap;
 gap:4px;
 }
 
-.edu-item .edu-label{
-flex:0 0 100%;
-font-size:14px;
-margin-bottom:2px;
-}
+.edu-item .edu-label{flex:0 0 100%;font-size:14px;margin-bottom:2px;}
+.edu-item input{flex:1;min-width:0;margin:0;font-size:13px;}
 
-.edu-item input{
-flex:1;
-min-width:0;
-margin:0;
-font-size:13px;
+.edu-item .open-btn,.edu-single .open-btn{
+flex:0 0 auto;background:#005599;color:white;border:none;
+padding:6px 10px;border-radius:4px;cursor:pointer;font-size:12px;margin:0;
 }
+.edu-item .open-btn:hover,.edu-single .open-btn:hover{background:#003366;}
 
-.edu-item .open-btn{
-flex:0 0 auto;
-background:#005599;
-color:white;
-border:none;
-padding:6px 10px;
-border-radius:4px;
-cursor:pointer;
-font-size:12px;
-margin:0;
+.edu-item .upload-btn,.edu-single .upload-btn{
+flex:0 0 auto;background:#339966;color:white;border:none;
+padding:6px 10px;border-radius:4px;cursor:pointer;font-size:12px;margin:0;
 }
-
-.edu-item .open-btn:hover{
-background:#003366;
-}
-
-.edu-item .upload-btn{
-flex:0 0 auto;
-background:#339966;
-color:white;
-border:none;
-padding:6px 10px;
-border-radius:4px;
-cursor:pointer;
-font-size:12px;
-margin:0;
-}
-
-.edu-item .upload-btn:hover{
-background:#227744;
-}
+.edu-item .upload-btn:hover,.edu-single .upload-btn:hover{background:#227744;}
 
 .edu-single{
-display:flex;
-align-items:center;
-gap:4px;
-margin-top:6px;
+display:flex;align-items:center;gap:4px;margin-top:6px;
 }
-
-.edu-single input{
-flex:1;
-min-width:0;
-margin:0;
-font-size:13px;
-}
-
-.edu-single .open-btn{
-flex:0 0 auto;
-background:#005599;
-color:white;
-border:none;
-padding:6px 10px;
-border-radius:4px;
-cursor:pointer;
-font-size:12px;
-margin:0;
-}
-
-.edu-single .open-btn:hover{
-background:#003366;
-}
-
-.edu-single .upload-btn{
-flex:0 0 auto;
-background:#339966;
-color:white;
-border:none;
-padding:6px 10px;
-border-radius:4px;
-cursor:pointer;
-font-size:12px;
-margin:0;
-}
-
-.edu-single .upload-btn:hover{
-background:#227744;
-}
+.edu-single input{flex:1;min-width:0;margin:0;font-size:13px;}
 
 /* Google Map */
 .map-container{
-width:100%;
-border-radius:8px;
-overflow:hidden;
-margin-bottom:12px;
-box-shadow:0 2px 5px rgba(0,0,0,0.15);
+width:100%;border-radius:8px;overflow:hidden;
+margin-bottom:12px;box-shadow:0 2px 5px rgba(0,0,0,0.15);
 }
-
-.map-container iframe{
-width:100%;
-height:380px;
-border:0;
-display:block;
-}
-
+.map-container iframe{width:100%;height:380px;border:0;display:block;}
 .map-coords{
-background:#003366;
-color:white;
-text-align:center;
-padding:6px 10px;
-font-size:13px;
+background:#003366;color:white;text-align:center;padding:6px 10px;font-size:13px;
 }
 
 /* District lists */
-#mapSection ul{
-padding-left:20px;
-line-height:1.7;
-}
-
-#mapSection li{
-margin-bottom:2px;
-}
+#mapSection ul{padding-left:20px;line-height:1.7;}
+#mapSection li{margin-bottom:2px;}
 
 /* Announcement Board */
 .announce-item{
-background:#d9ecff;
-border-radius:6px;
-padding:8px 10px;
-margin-bottom:6px;
-position:relative;
+background:#d9ecff;border-radius:6px;padding:8px 10px;
+margin-bottom:6px;position:relative;
 }
-
-.announce-item .announce-msg{
-font-size:14px;
-color:#223;
-white-space:pre-wrap;
-word-break:break-word;
+.announce-item .announce-msg{font-size:14px;color:#223;white-space:pre-wrap;word-break:break-word;}
+.announce-item .announce-time{font-size:11px;color:#668;margin-top:4px;}
+.announce-item .announce-del,.announce-del{
+position:absolute;top:6px;right:8px;background:none;border:none;
+color:#aa4444;cursor:pointer;font-size:14px;padding:0 4px;
 }
-
-.announce-item .announce-time{
-font-size:11px;
-color:#668;
-margin-top:4px;
-}
-
-.announce-item .announce-del{
-position:absolute;
-top:6px;right:8px;
-background:none;
-border:none;
-color:#aa4444;
-cursor:pointer;
-font-size:14px;
-padding:0 4px;
-}
-
-.announce-item .announce-del:hover{
-color:#cc0000;
-}
+.announce-item .announce-del:hover,.announce-del:hover{color:#cc0000;}
 
 /* On Call Staff */
 .oncall-item{
-background:#d9ecff;
-border-radius:6px;
-padding:8px 10px;
-margin-bottom:6px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+background:#d9ecff;border-radius:6px;padding:8px 10px;
+margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;
 }
-
-.oncall-item .oncall-info{
-font-size:14px;
-color:#223;
-}
-
-.oncall-item .oncall-info strong{
-color:#003366;
-}
-
-.oncall-item .oncall-actions{
-display:flex;
-gap:4px;
-}
-
+.oncall-item .oncall-info{font-size:14px;color:#223;}
+.oncall-item .oncall-info strong{color:#003366;}
+.oncall-item .oncall-actions{display:flex;gap:4px;}
 .oncall-item .oncall-actions button{
-border:none;
-cursor:pointer;
-padding:6px 12px;
-border-radius:4px;
-font-size:13px;
-font-weight:bold;
+border:none;cursor:pointer;padding:6px 12px;border-radius:4px;font-size:13px;font-weight:bold;
 }
-
 .oncall-edit{background:#005599;color:white !important;}
 .oncall-del{background:#cc4444;color:white !important;}
 .oncall-edit:hover{background:#003366;}
@@ -399,92 +235,45 @@ font-weight:bold;
 
 /* Traffic News */
 .traffic-item{
-background:#fff3cd;
-border-left:4px solid #e6a800;
-border-radius:0 6px 6px 0;
-padding:6px 10px;
-margin-bottom:6px;
-font-size:13px;
-color:#664d00;
-line-height:1.4;
+background:#fff3cd;border-left:4px solid #e6a800;border-radius:0 6px 6px 0;
+padding:6px 10px;margin-bottom:6px;font-size:13px;color:#664d00;line-height:1.4;
 }
-
-.traffic-none{
-color:#228822;
-font-size:13px;
-}
+.traffic-none{color:#228822;font-size:13px;}
 
 /* Login Overlay */
 #loginOverlay{
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:#003366;
-z-index:9999;
-display:flex;
-justify-content:center;
-align-items:center;
+position:fixed;top:0;left:0;width:100%;height:100%;
+background:#003366;z-index:9999;display:flex;justify-content:center;align-items:center;
 }
-
 .login-box{
-background:white;
-padding:30px 25px;
-border-radius:12px;
-box-shadow:0 4px 20px rgba(0,0,0,0.3);
-text-align:center;
-width:280px;
+background:white;padding:30px 25px;border-radius:12px;
+box-shadow:0 4px 20px rgba(0,0,0,0.3);text-align:center;width:280px;
 }
-
-.login-box h2{
-margin:0 0 6px 0;
-color:#003366;
-font-size:22px;
-}
-
-.login-box .subtitle{
-color:#668;
-font-size:13px;
-margin-bottom:18px;
-}
-
+.login-box h2{margin:0 0 6px 0;color:#003366;font-size:22px;}
+.login-box .subtitle{color:#668;font-size:13px;margin-bottom:18px;}
 .login-box input{
-width:100%;
-padding:10px;
-font-size:16px;
-border:2px solid #cce6ff;
-border-radius:6px;
-margin-bottom:12px;
-box-sizing:border-box;
-text-align:center;
+width:100%;padding:10px;font-size:16px;border:2px solid #cce6ff;
+border-radius:6px;margin-bottom:12px;box-sizing:border-box;text-align:center;
 }
-
-.login-box input:focus{
-outline:none;
-border-color:#3399ff;
-}
-
+.login-box input:focus{outline:none;border-color:#3399ff;}
 .login-box .login-btn{
-width:100%;
-padding:10px;
-background:#005599;
-color:white;
-border:none;
-border-radius:6px;
-font-size:16px;
-cursor:pointer;
+width:100%;padding:10px;background:#005599;color:white;
+border:none;border-radius:6px;font-size:16px;cursor:pointer;
 }
+.login-box .login-btn:hover{background:#003366;}
+.login-box .login-err{color:#cc0000;font-size:13px;margin-top:8px;min-height:18px;}
 
-.login-box .login-btn:hover{
-background:#003366;
+/* Sync status */
+.sync-bar{
+background:#228822;color:white;text-align:center;font-size:11px;padding:3px;
 }
-
-.login-box .login-err{
-color:#cc0000;
-font-size:13px;
-margin-top:8px;
-min-height:18px;
-}
+.sync-bar.offline{background:#cc4444;}
 </style>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
 </head>
 
 <body>
@@ -501,6 +290,7 @@ min-height:18px;
 </div>
 
 <header>CNS-ONE</header>
+<div id="syncBar" class="sync-bar">Connecting...</div>
 
 <nav>
 <button onclick="showSection('dashboard')">Dashboard</button>
@@ -526,9 +316,9 @@ min-height:18px;
 <div class="card">
 <h3>HK Public Holiday Calendar</h3>
 <div class="calendar-header">
-<button onclick="changeMonth(-1)">◀</button>
+<button onclick="changeMonth(-1)">&#9664;</button>
 <div id="monthTitle"></div>
-<button onclick="changeMonth(1)">▶</button>
+<button onclick="changeMonth(1)">&#9654;</button>
 </div>
 <div id="calendar"></div>
 <p>Red = HK Public Holiday</p>
@@ -561,17 +351,15 @@ min-height:18px;
 <h3>District Boundaries &amp; Public Housing Estates</h3>
 
 <div class="map-container">
-<div class="map-coords">Coverage: 22°08' — 22°35' N &nbsp;|&nbsp; 113°49' — 114°31' E</div>
+<div class="map-coords">Coverage: 22&deg;08' &mdash; 22&deg;35' N &nbsp;|&nbsp; 113&deg;49' &mdash; 114&deg;31' E</div>
 <iframe
 src="https://maps.google.com/maps?q=22.358,114.167&z=11&t=m&output=embed"
-allowfullscreen
-loading="lazy"
-referrerpolicy="no-referrer-when-downgrade"
+allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
 ></iframe>
 </div>
 
 <div class="card">
-<h4 style="margin-top:0;color:#003366;">Central &amp; Western District (中西區)</h4>
+<h4 style="margin-top:0;color:#003366;">Central &amp; Western District (&#20013;&#35199;&#21312;)</h4>
 <p style="margin-bottom:4px;"><strong>Boundary:</strong></p>
 <ul style="margin-top:0;">
 <li><strong>West:</strong> From Victoria Road / Mount Davis to Kennedy Town waterfront</li>
@@ -581,16 +369,15 @@ referrerpolicy="no-referrer-when-downgrade"
 </ul>
 <p style="margin-bottom:4px;"><strong>Key Areas:</strong></p>
 <p style="margin-top:0;">Kennedy Town, Sai Wan, Shek Tong Tsui, Sai Ying Pun, Sheung Wan, Central, Admiralty (west), Mid-Levels, The Peak</p>
-
 <p style="margin-bottom:4px;"><strong>Public Housing Estates:</strong></p>
 <ul style="margin-top:0;">
-<li>Sai Wan Estate (西環邨) — Kennedy Town</li>
-<li>Kwun Lung Lau (觀龍樓) — Kennedy Town</li>
+<li>Sai Wan Estate (&#35199;&#29872;&#37032;) &mdash; Kennedy Town</li>
+<li>Kwun Lung Lau (&#35264;&#40845;&#27155;) &mdash; Kennedy Town</li>
 </ul>
 </div>
 
 <div class="card">
-<h4 style="margin-top:0;color:#003366;">Southern District (南區)</h4>
+<h4 style="margin-top:0;color:#003366;">Southern District (&#21335;&#21312;)</h4>
 <p style="margin-bottom:4px;"><strong>Boundary:</strong></p>
 <ul style="margin-top:0;">
 <li><strong>North:</strong> Along Pok Fu Lam Road / The Peak / Wong Nai Chung Gap / Tai Tam Road boundary with Central &amp; Western and Wan Chai Districts</li>
@@ -600,20 +387,18 @@ referrerpolicy="no-referrer-when-downgrade"
 </ul>
 <p style="margin-bottom:4px;"><strong>Key Areas:</strong></p>
 <p style="margin-top:0;">Pok Fu Lam, Aberdeen, Ap Lei Chau, Wong Chuk Hang, Shouson Hill, Deep Water Bay, Repulse Bay, Stanley, Tai Tam, Shek O, Chung Hom Kok</p>
-
 <p style="margin-bottom:4px;"><strong>Public Housing Estates:</strong></p>
 <ul style="margin-top:0;">
-<li>Wah Fu (I) Estate (華富(一)邨) — Pok Fu Lam</li>
-<li>Wah Fu (II) Estate (華富(二)邨) — Pok Fu Lam</li>
-<li>Wah Kwai Estate (華貴邨) — Pok Fu Lam</li>
-<li>Shek Pai Wan Estate (石排灣邨) — Aberdeen</li>
-<li>Tin Wan Estate (田灣邨) — Aberdeen</li>
-<li>Yue Kwong Chuen (漁光村) — Aberdeen</li>
-<li>Ap Lei Chau Estate (鴨脷洲邨) — Ap Lei Chau</li>
-<li>Lei Tung Estate (利東邨) — Ap Lei Chau</li>
+<li>Wah Fu (I) Estate (&#33775;&#23500;(&#19968;)&#37032;) &mdash; Pok Fu Lam</li>
+<li>Wah Fu (II) Estate (&#33775;&#23500;(&#20108;)&#37032;) &mdash; Pok Fu Lam</li>
+<li>Wah Kwai Estate (&#33775;&#36020;&#37032;) &mdash; Pok Fu Lam</li>
+<li>Shek Pai Wan Estate (&#30707;&#25490;&#28771;&#37032;) &mdash; Aberdeen</li>
+<li>Tin Wan Estate (&#30000;&#28771;&#37032;) &mdash; Aberdeen</li>
+<li>Yue Kwong Chuen (&#28417;&#20809;&#26449;) &mdash; Aberdeen</li>
+<li>Ap Lei Chau Estate (&#40232;&#33079;&#27954;&#37032;) &mdash; Ap Lei Chau</li>
+<li>Lei Tung Estate (&#21033;&#26481;&#37032;) &mdash; Ap Lei Chau</li>
 </ul>
 </div>
-
 </div>
 
 <!-- TEAM -->
@@ -625,62 +410,67 @@ referrerpolicy="no-referrer-when-downgrade"
 <!-- EDUCATION -->
 <div id="education" class="section">
 <h3>Education Resources</h3>
-
-<div class="edu-section">
-<strong>1. Wound Care</strong>
-<div class="edu-item"><span class="edu-label">1a Pressure Injury</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
-<div class="edu-item"><span class="edu-label">1b Surgical Wound</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
-<div class="edu-item"><span class="edu-label">1c Packing Wound</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
-<div class="edu-item"><span class="edu-label">1d Scald Wound</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
-</div>
-
-<div class="edu-section">
-<strong>2. Central Line Care</strong>
-<div class="edu-item"><span class="edu-label">2a Hickman Line</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
-<div class="edu-item"><span class="edu-label">2b PICC</span><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
-</div>
-
-<div class="edu-section">
-<strong>3. IP Antibiotics Injection</strong>
-<div class="edu-single"><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
-</div>
-
-<div class="edu-section">
-<strong>4. TB Drug Preparation</strong>
-<div class="edu-single"><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
-</div>
-
-<div class="edu-section">
-<strong>5. Drain Care</strong>
-<div class="edu-single"><input type="url" placeholder="Paste link here..."><button class="open-btn" onclick="openEduLink(this)">Open</button><button class="upload-btn" onclick="uploadEduFile(this)">Upload</button><button class="announce-del" style="position:static;padding:6px 5px;" onclick="this.parentElement.remove()">✖</button></div>
-</div>
-
+<div id="educationList"><div class="weather-loading">Loading...</div></div>
 </div>
 
 <!-- CONTACTS -->
 <div id="contacts" class="section">
 <h3>Contact Directory</h3>
-
-<div class="card" style="position:relative;"><strong>TYH CNS</strong><br>2589-2280<button class="announce-del" onclick="this.parentElement.remove()">✖</button></div>
-<div class="card" style="position:relative;"><strong>Liaison Office</strong><br>2589-2300<button class="announce-del" onclick="this.parentElement.remove()">✖</button></div>
-<div class="card" style="position:relative;"><strong>ABD CNS</strong><br>2552-7099<button class="announce-del" onclick="this.parentElement.remove()">✖</button></div>
-<div class="card" style="position:relative;"><strong>CGAT</strong><br>2855-6144<button class="announce-del" onclick="this.parentElement.remove()">✖</button></div>
-<div class="card" style="position:relative;"><strong>ICDS</strong><br>2255-6743<button class="announce-del" onclick="this.parentElement.remove()">✖</button></div>
-
+<div id="contactsList"></div>
 <h4>Add New Contact</h4>
-<div id="contactsContainer"></div>
-<button class="add-btn" onclick="addContact()">Add Contact</button>
-
+<div style="display:flex;gap:6px;">
+<input type="text" id="contactName" placeholder="Name" style="flex:1;margin:0;font-size:14px;">
+<input type="text" id="contactPhone" placeholder="Phone" style="flex:1;margin:0;font-size:14px;">
+<button class="add-btn" style="margin:0;" onclick="addContact()">Add</button>
+</div>
 </div>
 
 <script>
 
-/* Login */
-var APP_PASSWORD = "qmhccs";
+/* ========== FIREBASE INIT ========== */
+var firebaseConfig = {
+  apiKey: "AIzaSyDXQSZu3IvimR2HdpdULjTnF76H5PCUIOI",
+  authDomain: "qmh-ccs.firebaseapp.com",
+  databaseURL: "https://qmh-ccs-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "qmh-ccs",
+  storageBucket: "qmh-ccs.firebasestorage.app",
+  messagingSenderId: "1086418646356",
+  appId: "1:1086418646356:web:81008c79da74fd937f04c1"
+};
+firebase.initializeApp(firebaseConfig);
+var db = firebase.database();
 
-function checkLogin(){
+/* Connection status */
+var syncBar = document.getElementById("syncBar");
+db.ref(".info/connected").on("value", function(snap) {
+  if (snap.val() === true) {
+    syncBar.textContent = "Real-time sync active";
+    syncBar.className = "sync-bar";
+  } else {
+    syncBar.textContent = "Offline - reconnecting...";
+    syncBar.className = "sync-bar offline";
+  }
+});
+
+/* ========== HELPERS ========== */
+function esc(str) {
+  if (!str) return "";
+  return String(str).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+function formatDateInput(el) {
+  var v = el.value.replace(/[^0-9]/g, "");
+  if (v.length > 2) v = v.slice(0,2) + "/" + v.slice(2);
+  if (v.length > 5) v = v.slice(0,5) + "/" + v.slice(5);
+  if (v.length > 10) v = v.slice(0,10);
+  el.value = v;
+}
+
+/* ========== LOGIN ========== */
+var APP_PASSWORD = "qmhccs";
+function checkLogin() {
   var pwd = document.getElementById("pwdInput").value;
-  if(pwd === APP_PASSWORD){
+  if (pwd === APP_PASSWORD) {
     document.getElementById("loginOverlay").style.display = "none";
   } else {
     document.getElementById("loginErr").textContent = "Password incorrect";
@@ -688,94 +478,100 @@ function checkLogin(){
   }
 }
 
-/* Navigation */
-function showSection(id){
-document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-document.getElementById(id).classList.add('active');
+/* ========== NAVIGATION ========== */
+function showSection(id) {
+  document.querySelectorAll(".section").forEach(function(s) { s.classList.remove("active"); });
+  document.getElementById(id).classList.add("active");
 }
 
-/* Announcement Board */
-function postAnnouncement(){
-  var input = document.getElementById("announceText");
-  var msg = input.value.trim();
-  if(!msg) return;
-  var now = new Date();
-  var time = now.toLocaleDateString("en-HK",{day:"2-digit",month:"short"}) + " " + now.toLocaleTimeString("en-HK",{hour:"2-digit",minute:"2-digit"});
-  var list = document.getElementById("announceList");
-  var item = document.createElement("div");
-  item.className = "announce-item";
-  item.innerHTML = '<button class="announce-del" onclick="this.parentElement.remove();checkAnnounceEmpty();">\u2716</button>'
-    + '<div class="announce-msg">' + msg.replace(/</g,"&lt;").replace(/>/g,"&gt;") + '</div>'
-    + '<div class="announce-time">' + time + '</div>';
-  list.insertBefore(item, list.firstChild);
-  input.value = "";
-  checkAnnounceEmpty();
+/* ========== SEED DEFAULTS ========== */
+function seedDefaults() {
+  db.ref("meta/seeded").once("value", function(snap) {
+    if (snap.val()) return;
+
+    var contacts = [
+      { name: "TYH CNS", phone: "2589-2280" },
+      { name: "Liaison Office", phone: "2589-2300" },
+      { name: "ABD CNS", phone: "2552-7099" },
+      { name: "CGAT", phone: "2855-6144" },
+      { name: "ICDS", phone: "2255-6743" }
+    ];
+    contacts.forEach(function(c) { db.ref("contacts").push(c); });
+
+    ["A","B","C","D","E","F"].forEach(function(letter) {
+      for (var i = 1; i <= 3; i++) {
+        db.ref("teams/" + letter + "/subs").push({ name: letter + i });
+      }
+    });
+
+    var edu = {
+      "1a": { section: "1. Wound Care", label: "1a Pressure Injury", link: "" },
+      "1b": { section: "1. Wound Care", label: "1b Surgical Wound", link: "" },
+      "1c": { section: "1. Wound Care", label: "1c Packing Wound", link: "" },
+      "1d": { section: "1. Wound Care", label: "1d Scald Wound", link: "" },
+      "2a": { section: "2. Central Line Care", label: "2a Hickman Line", link: "" },
+      "2b": { section: "2. Central Line Care", label: "2b PICC", link: "" },
+      "s3": { section: "3. IP Antibiotics Injection", label: "", link: "" },
+      "s4": { section: "4. TB Drug Preparation", label: "", link: "" },
+      "s5": { section: "5. Drain Care", label: "", link: "" }
+    };
+    Object.keys(edu).forEach(function(key) { db.ref("education/" + key).set(edu[key]); });
+
+    db.ref("meta/seeded").set(true);
+  });
+}
+seedDefaults();
+
+/* ========== WEATHER (Local API) ========== */
+var HKO_BASE = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php";
+
+function loadWeather() {
+  var container = document.getElementById("weatherContent");
+  container.innerHTML = '<div class="weather-loading">Loading...</div>';
+  Promise.all([
+    fetch(HKO_BASE + "?dataType=rhrread&lang=en").then(function(r){ return r.json(); }).catch(function(){ return null; }),
+    fetch(HKO_BASE + "?dataType=warningInfo&lang=en").then(function(r){ return r.json(); }).catch(function(){ return null; })
+  ]).then(function(res) { renderWeather(res[0], res[1]); })
+    .catch(function() { container.innerHTML = '<div class="weather-loading">Unable to load weather data.</div>'; });
 }
 
-function checkAnnounceEmpty(){
-  var list = document.getElementById("announceList");
-  document.getElementById("announceEmpty").style.display = list.children.length ? "none" : "block";
+function renderWeather(rhr, warn) {
+  var container = document.getElementById("weatherContent");
+  var html = "";
+  if (warn && warn.details && warn.details.length > 0) {
+    warn.details.forEach(function(w) {
+      html += '<div class="wx-warn">' + (w.warningStatementCode || w.subtype || "Warning") + '</div>';
+    });
+  } else {
+    html += '<div class="wx-ok">No active warnings</div>';
+  }
+  var temp = "\u2014", humidity = "\u2014";
+  if (rhr) {
+    if (rhr.temperature && rhr.temperature.data) {
+      var s = rhr.temperature.data.find(function(d){ return d.place === "Hong Kong Observatory"; });
+      temp = s ? s.value : rhr.temperature.data[0].value;
+    }
+    if (rhr.humidity && rhr.humidity.data) {
+      var h = rhr.humidity.data.find(function(d){ return d.place === "Hong Kong Observatory"; });
+      humidity = h ? h.value : rhr.humidity.data[0].value;
+    }
+  }
+  html += '<div class="weather-row">';
+  html += '<div class="wx-val"><div class="num">' + temp + '\u00B0C</div><div class="lbl">Temperature</div></div>';
+  html += '<div class="wx-val"><div class="num">' + humidity + '%</div><div class="lbl">Humidity</div></div>';
+  html += '</div>';
+  if (rhr && rhr.updateTime) {
+    var ut = new Date(rhr.updateTime);
+    html += '<div class="wx-time">Updated: ' + ut.toLocaleTimeString("en-HK", {hour:"2-digit", minute:"2-digit"}) + '</div>';
+  }
+  container.innerHTML = html;
 }
+loadWeather();
 
-/* Date auto-format DD/MM/YYYY */
-function formatDateInput(el){
-  var v = el.value.replace(/[^0-9]/g,"");
-  if(v.length > 2) v = v.slice(0,2) + "/" + v.slice(2);
-  if(v.length > 5) v = v.slice(0,5) + "/" + v.slice(5);
-  if(v.length > 10) v = v.slice(0,10);
-  el.value = v;
-}
+/* ========== TRAFFIC (Local API) ========== */
+var TRAFFIC_KEYWORDS = ["central","western","sheung wan","sai ying pun","kennedy town","sai wan","shek tong tsui","mid-levels","the peak","admiralty","aberdeen","ap lei chau","wong chuk hang","repulse bay","stanley","pok fu lam","deep water bay","shek o","tai tam","wah fu","tin wan","pokfulam","south","southern","\u4e2d\u897f","\u5357\u5340","\u4e2d\u74b0","\u897f\u74b0","\u4e0a\u74b0","\u897f\u71df\u76e4","\u5805\u5c3c\u5730\u57ce","\u9999\u6e2f\u4ed4","\u9d28\u8477\u6d32","\u9ec3\u7af9\u5751","\u8584\u6276\u6797","\u6dfa\u6c34\u7063","\u8d64\u67f1","\u77f3\u6fb3","\u534a\u5c71","\u5c71\u9802","\u91d1\u9418"];
 
-/* Sunday On Call Staff */
-function addOncall(){
-  var nameInput = document.getElementById("oncallName");
-  var dateInput = document.getElementById("oncallDate");
-  var name = nameInput.value.trim();
-  var date = dateInput.value.trim();
-  if(!name) return;
-  var list = document.getElementById("oncallList");
-  var item = document.createElement("div");
-  item.className = "oncall-item";
-  item.innerHTML = '<div class="oncall-info"><strong>' + name.replace(/</g,"&lt;") + '</strong>' + (date ? ' — ' + date.replace(/</g,"&lt;") : '') + '</div>'
-    + '<div class="oncall-actions">'
-    + '<button class="oncall-edit" onclick="editOncall(this)">Edit</button>'
-    + '<button class="oncall-del" onclick="this.closest(\'.oncall-item\').remove();">Delete</button>'
-    + '</div>';
-  list.appendChild(item);
-  nameInput.value = "";
-  dateInput.value = "";
-}
-
-function editOncall(btn){
-  var item = btn.closest(".oncall-item");
-  var info = item.querySelector(".oncall-info");
-  var parts = info.textContent.split(" — ");
-  var oldName = parts[0].trim();
-  var oldDate = parts[1] ? parts[1].trim() : "";
-  item.innerHTML = '<div style="display:flex;gap:4px;flex:1;align-items:center;">'
-    + '<input type="text" class="oncall-edit-name" value="' + oldName.replace(/"/g,"&quot;") + '" style="flex:1;margin:0;font-size:14px;">'
-    + '<input type="text" class="oncall-edit-date" value="' + oldDate.replace(/"/g,"&quot;") + '" placeholder="DD/MM/YYYY" maxlength="10" oninput="formatDateInput(this)" style="flex:1;margin:0;font-size:14px;">'
-    + '<button class="add-btn" style="margin:0;" onclick="saveOncall(this)">Save</button>'
-    + '</div>';
-}
-
-function saveOncall(btn){
-  var wrapper = btn.parentElement;
-  var item = wrapper.closest(".oncall-item");
-  var name = wrapper.querySelector(".oncall-edit-name").value.trim();
-  var date = wrapper.querySelector(".oncall-edit-date").value.trim();
-  if(!name) return;
-  item.innerHTML = '<div class="oncall-info"><strong>' + name.replace(/</g,"&lt;") + '</strong>' + (date ? ' — ' + date.replace(/</g,"&lt;") : '') + '</div>'
-    + '<div class="oncall-actions">'
-    + '<button class="oncall-edit" onclick="editOncall(this)">Edit</button>'
-    + '<button class="oncall-del" onclick="this.closest(\'.oncall-item\').remove();">Delete</button>'
-    + '</div>';
-}
-
-/* Transport Dept Special Traffic News — Central, Western & Southern only */
-var TRAFFIC_KEYWORDS = ["central","western","sheung wan","sai ying pun","kennedy town","sai wan","shek tong tsui","mid-levels","the peak","admiralty","aberdeen","ap lei chau","wong chuk hang","repulse bay","stanley","pok fu lam","deep water bay","shek o","tai tam","wah fu","tin wan","pokfulam","south","southern","中西","南區","中環","西環","上環","西營盤","堅尼地城","香港仔","鴨脷洲","黃竹坑","薄扶林","淺水灣","赤柱","石澳","半山","山頂","金鐘"];
-
-function loadTraffic(){
+function loadTraffic() {
   var container = document.getElementById("trafficContent");
   container.innerHTML = '<div class="weather-loading">Loading traffic news...</div>';
   fetch("https://resource.data.one.gov.hk/td/en/specialtrafficnews.xml")
@@ -788,206 +584,375 @@ function loadTraffic(){
       messages.forEach(function(m){
         var content = m.querySelector("CONTENT_EN, CONTENT, content");
         var text = content ? content.textContent.trim() : m.textContent.trim();
-        if(!text) return;
+        if (!text) return;
         var lower = text.toLowerCase();
         var match = TRAFFIC_KEYWORDS.some(function(kw){ return lower.indexOf(kw.toLowerCase()) !== -1; });
-        if(match) html += '<div class="traffic-item">' + text + '</div>';
+        if (match) html += '<div class="traffic-item">' + text + '</div>';
       });
       container.innerHTML = html || '<div class="traffic-none">No special traffic news for Central, Western &amp; Southern</div>';
     })
-    .catch(function(){
-      container.innerHTML = '<div class="weather-loading">Unable to load traffic news.</div>';
-    });
+    .catch(function(){ container.innerHTML = '<div class="weather-loading">Unable to load traffic news.</div>'; });
 }
 loadTraffic();
 
-/* Calendar */
-let hkHolidays=["2026-01-01","2026-02-17","2026-04-04","2026-05-01","2026-07-01","2026-10-01","2026-12-25"];
-let currentDate=new Date();
+/* ========== CALENDAR (Local) ========== */
+var hkHolidays = ["2026-01-01","2026-02-17","2026-04-04","2026-05-01","2026-07-01","2026-10-01","2026-12-25"];
+var currentDate = new Date();
 
-function renderCalendar(){
-const year=currentDate.getFullYear();
-const month=currentDate.getMonth();
-document.getElementById("monthTitle").innerText=
-currentDate.toLocaleString('default',{month:'long'})+" "+year;
-
-const firstDay=new Date(year,month,1);
-const lastDay=new Date(year,month+1,0);
-const calendar=document.getElementById("calendar");
-calendar.innerHTML="";
-
-for(let i=0;i<firstDay.getDay();i++) calendar.innerHTML+="<div></div>";
-
-for(let d=1; d<=lastDay.getDate(); d++){
-let dateStr=year+"-"+String(month+1).padStart(2,'0')+"-"+String(d).padStart(2,'0');
-let day=document.createElement("div");
-day.className="day";
-day.innerText=d;
-
-if(hkHolidays.includes(dateStr)) day.classList.add("hkHoliday");
-
-calendar.appendChild(day);
+function renderCalendar() {
+  var year = currentDate.getFullYear();
+  var month = currentDate.getMonth();
+  document.getElementById("monthTitle").innerText =
+    currentDate.toLocaleString("default",{month:"long"}) + " " + year;
+  var firstDay = new Date(year, month, 1);
+  var lastDay = new Date(year, month+1, 0);
+  var calendar = document.getElementById("calendar");
+  calendar.innerHTML = "";
+  for (var i = 0; i < firstDay.getDay(); i++) calendar.innerHTML += "<div></div>";
+  for (var d = 1; d <= lastDay.getDate(); d++) {
+    var dateStr = year + "-" + String(month+1).padStart(2,"0") + "-" + String(d).padStart(2,"0");
+    var day = document.createElement("div");
+    day.className = "day";
+    day.innerText = d;
+    if (hkHolidays.includes(dateStr)) day.classList.add("hkHoliday");
+    calendar.appendChild(day);
+  }
 }
-}
-function changeMonth(dir){currentDate.setMonth(currentDate.getMonth()+dir);renderCalendar();}
+function changeMonth(dir) { currentDate.setMonth(currentDate.getMonth()+dir); renderCalendar(); }
 renderCalendar();
 
-/* HK Observatory Weather — brief: warnings + temp + humidity only */
-var HKO_BASE = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php";
-
-function loadWeather() {
-  var container = document.getElementById("weatherContent");
-  container.innerHTML = '<div class="weather-loading">Loading...</div>';
-
-  Promise.all([
-    fetch(HKO_BASE + "?dataType=rhrread&lang=en").then(function(r){ return r.json(); }).catch(function(){ return null; }),
-    fetch(HKO_BASE + "?dataType=warningInfo&lang=en").then(function(r){ return r.json(); }).catch(function(){ return null; })
-  ]).then(function(res) {
-    renderWeather(res[0], res[1]);
-  }).catch(function() {
-    container.innerHTML = '<div class="weather-loading">Unable to load weather data.</div>';
+/* ========== ANNOUNCEMENTS (Firebase) ========== */
+db.ref("announcements").orderByChild("timestamp").on("value", function(snap) {
+  var list = document.getElementById("announceList");
+  list.innerHTML = "";
+  var items = [];
+  snap.forEach(function(child) { items.push({ id: child.key, data: child.val() }); });
+  items.reverse();
+  items.forEach(function(a) {
+    var div = document.createElement("div");
+    div.className = "announce-item";
+    div.innerHTML = '<button class="announce-del" onclick="db.ref(\'announcements/' + a.id + '\').remove()">\u2716</button>'
+      + '<div class="announce-msg">' + esc(a.data.msg) + '</div>'
+      + '<div class="announce-time">' + esc(a.data.time) + '</div>';
+    list.appendChild(div);
   });
-}
-
-function renderWeather(rhr, warn) {
-  var container = document.getElementById("weatherContent");
-  var html = "";
-
-  /* Warnings */
-  if (warn && warn.details && warn.details.length > 0) {
-    warn.details.forEach(function(w) {
-      html += '<div class="wx-warn">' + (w.warningStatementCode || w.subtype || "Warning") + '</div>';
-    });
-  } else {
-    html += '<div class="wx-ok">No active warnings</div>';
-  }
-
-  /* Temp + Humidity */
-  var temp = "—";
-  var humidity = "—";
-
-  if (rhr) {
-    if (rhr.temperature && rhr.temperature.data) {
-      var s = rhr.temperature.data.find(function(d){ return d.place === "Hong Kong Observatory"; });
-      temp = s ? s.value : rhr.temperature.data[0].value;
-    }
-    if (rhr.humidity && rhr.humidity.data) {
-      var h = rhr.humidity.data.find(function(d){ return d.place === "Hong Kong Observatory"; });
-      humidity = h ? h.value : rhr.humidity.data[0].value;
-    }
-  }
-
-  html += '<div class="weather-row">';
-  html += '<div class="wx-val"><div class="num">' + temp + '°C</div><div class="lbl">Temperature</div></div>';
-  html += '<div class="wx-val"><div class="num">' + humidity + '%</div><div class="lbl">Humidity</div></div>';
-  html += '</div>';
-
-  /* Update time */
-  if (rhr && rhr.updateTime) {
-    var ut = new Date(rhr.updateTime);
-    html += '<div class="wx-time">Updated: ' + ut.toLocaleTimeString("en-HK", {hour:"2-digit", minute:"2-digit"}) + '</div>';
-  }
-
-  container.innerHTML = html;
-}
-
-loadWeather();
-
-/* Teams */
-var subteamCount = {};
-const teamsContainer=document.getElementById("teams");
-["A","B","C","D","E","F"].forEach(letter=>{
-let header=document.createElement("div");
-header.className="team-header";
-header.innerText="Team "+letter;
-teamsContainer.appendChild(header);
-
-let content=document.createElement("div");
-content.style.display="none";
-teamsContainer.appendChild(content);
-
-header.onclick=()=>{content.style.display=content.style.display==="block"?"none":"block";};
-
-subteamCount[letter]=3;
-for(let i=1;i<=3;i++){
-addSubteam(content, letter, i);
-}
-
-let addTeamBtn=document.createElement("button");
-addTeamBtn.className="add-btn";
-addTeamBtn.style.marginBottom="10px";
-addTeamBtn.innerText="Add Team";
-addTeamBtn.onclick=()=>{
-subteamCount[letter]++;
-let idx=subteamCount[letter];
-addSubteam(content, letter, idx);
-content.insertBefore(content.lastElementChild, addTeamBtn);
-};
-content.appendChild(addTeamBtn);
+  document.getElementById("announceEmpty").style.display = items.length ? "none" : "block";
 });
 
-function addSubteam(parent, letter, num){
-let sub=document.createElement("div");
-sub.className="subteam";
-sub.style.position="relative";
-sub.innerHTML="<strong>Subteam "+letter+num+"</strong>";
-let delSub=document.createElement("button");
-delSub.className="announce-del";
-delSub.textContent="\u2716";
-delSub.onclick=()=>sub.remove();
-sub.appendChild(delSub);
-let btn=document.createElement("button");
-btn.className="add-btn";
-btn.innerText="Add Patient";
-btn.onclick=()=>addPatient(sub);
-sub.appendChild(btn);
-parent.appendChild(sub);
+function postAnnouncement() {
+  var input = document.getElementById("announceText");
+  var msg = input.value.trim();
+  if (!msg) return;
+  var now = new Date();
+  var time = now.toLocaleDateString("en-HK",{day:"2-digit",month:"short"}) + " " + now.toLocaleTimeString("en-HK",{hour:"2-digit",minute:"2-digit"});
+  db.ref("announcements").push({ msg: msg, time: time, timestamp: firebase.database.ServerValue.TIMESTAMP });
+  input.value = "";
 }
 
-function addPatient(parent){
-let div=document.createElement("div");
-div.className="patient";
-div.style.position="relative";
-let del=document.createElement("button");
-del.className="announce-del";
-del.textContent="\u2716";
-del.onclick=()=>div.remove();
-div.appendChild(del);
-let ta=document.createElement("textarea");
-ta.placeholder="Patient details (max 500 characters)";
-ta.maxLength=500;
-ta.rows=2;
-ta.style.width="100%";
-ta.style.fontSize="14px";
-ta.style.resize="vertical";
-ta.oninput=function(){
-let counter=ta.parentElement.querySelector(".char-count");
-counter.textContent=ta.value.length+"/500";
-};
-div.appendChild(ta);
-let counter=document.createElement("div");
-counter.className="char-count";
-counter.style.fontSize="11px";
-counter.style.color="#668";
-counter.style.textAlign="right";
-counter.textContent="0/500";
-div.appendChild(counter);
-parent.appendChild(div);
+/* ========== ON CALL STAFF (Firebase) ========== */
+db.ref("oncall").on("value", function(snap) {
+  var list = document.getElementById("oncallList");
+  list.innerHTML = "";
+  snap.forEach(function(child) {
+    var data = child.val();
+    var id = child.key;
+    var div = document.createElement("div");
+    div.className = "oncall-item";
+    div.setAttribute("data-id", id);
+    div.innerHTML = '<div class="oncall-info"><strong>' + esc(data.name) + '</strong>' + (data.date ? ' \u2014 ' + esc(data.date) : '') + '</div>'
+      + '<div class="oncall-actions">'
+      + '<button class="oncall-edit" onclick="editOncall(this,\'' + id + '\')">Edit</button>'
+      + '<button class="oncall-del" onclick="db.ref(\'oncall/' + id + '\').remove()">Delete</button>'
+      + '</div>';
+    list.appendChild(div);
+  });
+});
+
+function addOncall() {
+  var nameInput = document.getElementById("oncallName");
+  var dateInput = document.getElementById("oncallDate");
+  var name = nameInput.value.trim();
+  var date = dateInput.value.trim();
+  if (!name) return;
+  db.ref("oncall").push({ name: name, date: date });
+  nameInput.value = "";
+  dateInput.value = "";
 }
+
+function editOncall(btn, id) {
+  var item = btn.closest(".oncall-item");
+  var info = item.querySelector(".oncall-info");
+  var parts = info.textContent.split(" \u2014 ");
+  var oldName = parts[0].trim();
+  var oldDate = parts[1] ? parts[1].trim() : "";
+  item.innerHTML = '<div style="display:flex;gap:4px;flex:1;align-items:center;">'
+    + '<input type="text" class="oncall-edit-name" value="' + esc(oldName) + '" style="flex:1;margin:0;font-size:14px;">'
+    + '<input type="text" class="oncall-edit-date" value="' + esc(oldDate) + '" placeholder="DD/MM/YYYY" maxlength="10" oninput="formatDateInput(this)" style="flex:1;margin:0;font-size:14px;">'
+    + '<button class="add-btn" style="margin:0;" onclick="saveOncall(this,\'' + id + '\')">Save</button>'
+    + '</div>';
+}
+
+function saveOncall(btn, id) {
+  var wrapper = btn.parentElement;
+  var name = wrapper.querySelector(".oncall-edit-name").value.trim();
+  var date = wrapper.querySelector(".oncall-edit-date").value.trim();
+  if (!name) return;
+  db.ref("oncall/" + id).set({ name: name, date: date });
+}
+
+/* ========== CONTACTS (Firebase) ========== */
+db.ref("contacts").on("value", function(snap) {
+  var container = document.getElementById("contactsList");
+  container.innerHTML = "";
+  snap.forEach(function(child) {
+    var data = child.val();
+    var id = child.key;
+    var div = document.createElement("div");
+    div.className = "card";
+    div.style.position = "relative";
+    div.innerHTML = '<button class="announce-del" onclick="db.ref(\'contacts/' + id + '\').remove()">\u2716</button>'
+      + '<strong>' + esc(data.name) + '</strong><br>' + esc(data.phone);
+    container.appendChild(div);
+  });
+});
+
+function addContact() {
+  var nameInput = document.getElementById("contactName");
+  var phoneInput = document.getElementById("contactPhone");
+  var name = nameInput.value.trim();
+  var phone = phoneInput.value.trim();
+  if (!name) return;
+  db.ref("contacts").push({ name: name, phone: phone });
+  nameInput.value = "";
+  phoneInput.value = "";
+}
+
+/* ========== TEAMS (Firebase) ========== */
+var teamContents = {};
+var teamsContainer = document.getElementById("teams");
+
+["A","B","C","D","E","F"].forEach(function(letter) {
+  var header = document.createElement("div");
+  header.className = "team-header";
+  header.innerText = "Team " + letter;
+  teamsContainer.appendChild(header);
+
+  var content = document.createElement("div");
+  content.style.display = "none";
+  teamsContainer.appendChild(content);
+
+  header.onclick = function() {
+    content.style.display = content.style.display === "block" ? "none" : "block";
+  };
+
+  teamContents[letter] = content;
+
+  db.ref("teams/" + letter + "/subs").on("value", function(snap) {
+    renderTeamContent(letter, content, snap);
+  });
+});
+
+function renderTeamContent(letter, container, snap) {
+  /* Save focus state */
+  var focused = document.activeElement;
+  var focusedPid = null, focusedVal = null, focusedCur = null;
+  if (focused && focused.tagName === "TEXTAREA" && container.contains(focused)) {
+    focusedPid = focused.getAttribute("data-pid");
+    focusedVal = focused.value;
+    focusedCur = focused.selectionStart;
+  }
+
+  container.innerHTML = "";
+
+  snap.forEach(function(subSnap) {
+    var subId = subSnap.key;
+    var subData = subSnap.val();
+    var subName = subData.name || subId;
+
+    var sub = document.createElement("div");
+    sub.className = "subteam";
+    sub.style.position = "relative";
+    sub.innerHTML = "<strong>" + esc(subName) + "</strong>";
+
+    /* Delete subteam */
+    var delSub = document.createElement("button");
+    delSub.className = "announce-del";
+    delSub.textContent = "\u2716";
+    delSub.onclick = function() { db.ref("teams/" + letter + "/subs/" + subId).remove(); };
+    sub.appendChild(delSub);
+
+    /* Patients */
+    var patients = subData.patients || {};
+    Object.keys(patients).forEach(function(pid) {
+      var p = patients[pid];
+      var div = document.createElement("div");
+      div.className = "patient";
+      div.style.position = "relative";
+
+      var del = document.createElement("button");
+      del.className = "announce-del";
+      del.textContent = "\u2716";
+      del.onclick = function() { db.ref("teams/" + letter + "/subs/" + subId + "/patients/" + pid).remove(); };
+      div.appendChild(del);
+
+      var ta = document.createElement("textarea");
+      ta.setAttribute("data-pid", pid);
+      ta.placeholder = "Patient details (max 500 characters)";
+      ta.maxLength = 500;
+      ta.rows = 2;
+      ta.style.width = "100%";
+      ta.style.fontSize = "14px";
+      ta.style.resize = "vertical";
+      ta.value = p.details || "";
+
+      var debounceTimer;
+      ta.oninput = function() {
+        var counter = ta.parentElement.querySelector(".char-count");
+        if (counter) counter.textContent = ta.value.length + "/500";
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(function() {
+          db.ref("teams/" + letter + "/subs/" + subId + "/patients/" + pid + "/details").set(ta.value);
+        }, 1000);
+      };
+      div.appendChild(ta);
+
+      var counter = document.createElement("div");
+      counter.className = "char-count";
+      counter.style.fontSize = "11px";
+      counter.style.color = "#668";
+      counter.style.textAlign = "right";
+      counter.textContent = (p.details || "").length + "/500";
+      div.appendChild(counter);
+
+      sub.appendChild(div);
+    });
+
+    /* Add Patient button */
+    var addBtn = document.createElement("button");
+    addBtn.className = "add-btn";
+    addBtn.innerText = "Add Patient";
+    addBtn.onclick = function() {
+      db.ref("teams/" + letter + "/subs/" + subId + "/patients").push({ details: "" });
+    };
+    sub.appendChild(addBtn);
+
+    container.appendChild(sub);
+  });
+
+  /* Add Team button */
+  var addTeamBtn = document.createElement("button");
+  addTeamBtn.className = "add-btn";
+  addTeamBtn.style.marginBottom = "10px";
+  addTeamBtn.innerText = "Add Team";
+  addTeamBtn.onclick = function() {
+    var maxNum = 0;
+    snap.forEach(function(s) {
+      var n = s.val().name || "";
+      var num = parseInt(n.replace(letter, ""));
+      if (!isNaN(num) && num > maxNum) maxNum = num;
+    });
+    db.ref("teams/" + letter + "/subs").push({ name: letter + (maxNum + 1) });
+  };
+  container.appendChild(addTeamBtn);
+
+  /* Restore focus */
+  if (focusedPid) {
+    var ta = container.querySelector('[data-pid="' + focusedPid + '"]');
+    if (ta) {
+      ta.value = focusedVal;
+      ta.focus();
+      try { ta.selectionStart = ta.selectionEnd = focusedCur; } catch(e) {}
+    }
+  }
+}
+
+/* ========== EDUCATION (Firebase) ========== */
+db.ref("education").on("value", function(snap) {
+  var container = document.getElementById("educationList");
+  container.innerHTML = "";
+
+  var sections = {};
+  var sectionOrder = [];
+  snap.forEach(function(child) {
+    var data = child.val();
+    var key = child.key;
+    if (!sections[data.section]) {
+      sections[data.section] = [];
+      sectionOrder.push(data.section);
+    }
+    sections[data.section].push({ key: key, label: data.label || "", link: data.link || "" });
+  });
+
+  sectionOrder.forEach(function(sectionName) {
+    var sec = document.createElement("div");
+    sec.className = "edu-section";
+    sec.innerHTML = "<strong>" + esc(sectionName) + "</strong>";
+
+    sections[sectionName].forEach(function(item) {
+      var hasLabel = item.label !== "";
+      var wrapper = document.createElement("div");
+      wrapper.className = hasLabel ? "edu-item" : "edu-single";
+
+      if (hasLabel) {
+        var label = document.createElement("span");
+        label.className = "edu-label";
+        label.textContent = item.label;
+        wrapper.appendChild(label);
+      }
+
+      var input = document.createElement("input");
+      input.type = "url";
+      input.placeholder = "Paste link here...";
+      input.value = item.link;
+      input.onchange = function() {
+        db.ref("education/" + item.key + "/link").set(input.value);
+      };
+      wrapper.appendChild(input);
+
+      var openBtn = document.createElement("button");
+      openBtn.className = "open-btn";
+      openBtn.textContent = "Open";
+      openBtn.onclick = function() { openEduLink(openBtn); };
+      wrapper.appendChild(openBtn);
+
+      var uploadBtn = document.createElement("button");
+      uploadBtn.className = "upload-btn";
+      uploadBtn.textContent = "Upload";
+      uploadBtn.onclick = function() { uploadEduFile(uploadBtn); };
+      wrapper.appendChild(uploadBtn);
+
+      var delBtn = document.createElement("button");
+      delBtn.className = "announce-del";
+      delBtn.style.position = "static";
+      delBtn.style.padding = "6px 5px";
+      delBtn.textContent = "\u2716";
+      delBtn.onclick = function() { db.ref("education/" + item.key).remove(); };
+      wrapper.appendChild(delBtn);
+
+      sec.appendChild(wrapper);
+    });
+
+    container.appendChild(sec);
+  });
+
+  if (sectionOrder.length === 0) {
+    container.innerHTML = '<div class="weather-loading">No education resources</div>';
+  }
+});
 
 /* Open Education Link */
 function openEduLink(btn) {
-  var input = btn.parentElement.querySelector("input[type='url']");
+  var input = btn.parentElement.querySelector("input");
   var url = input.value.trim();
   if (!url) return;
   if (!/^https?:\/\//i.test(url) && !/^blob:/i.test(url)) url = "https://" + url;
   window.open(url, "_blank");
 }
 
-/* Upload Education File */
+/* Upload Education File (local only) */
 function uploadEduFile(btn) {
   var container = btn.parentElement;
-  var input = container.querySelector("input[type='url']");
+  var input = container.querySelector("input");
   var fileInput = document.createElement("input");
   fileInput.type = "file";
   fileInput.accept = ".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.jpg,.png,.mp4,.txt";
@@ -1000,7 +965,7 @@ function uploadEduFile(btn) {
       input.placeholder = file.name;
       btn.textContent = "Uploaded";
       btn.style.background = "#227744";
-      setTimeout(function(){ btn.textContent = "Upload"; btn.style.background = ""; }, 2000);
+      setTimeout(function() { btn.textContent = "Upload"; btn.style.background = ""; }, 2000);
     }
     fileInput.remove();
   };
@@ -1008,17 +973,7 @@ function uploadEduFile(btn) {
   fileInput.click();
 }
 
-/* Add Contact */
-function addContact(){
-let div=document.createElement("div");
-div.className="card";
-div.style.position="relative";
-div.innerHTML='<button class="announce-del" onclick="this.parentElement.remove()">\u2716</button><strong>Name</strong><input type="text"><strong>Phone</strong><input type="text">';
-document.getElementById("contactsContainer").appendChild(div);
-}
-
 </script>
 
 </body>
 </html>
-

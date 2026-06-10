@@ -604,8 +604,8 @@ min-height:18px;
 </div>
 
 <div class="card">
-<h3>Transport Dept Special Traffic News <button class="refresh-btn" onclick="loadTraffic()">Refresh</button></h3>
-<div id="trafficContent"><div class="weather-loading">Loading traffic news...</div></div>
+<h3>中西南區路面交通狀況 <button class="refresh-btn" onclick="loadTraffic()">Refresh</button></h3>
+<div id="trafficContent"><div class="weather-loading">載入交通消息...</div></div>
 </div>
 
 <div class="card">
@@ -1164,10 +1164,11 @@ function saveOncall(btn){
 
 /* ============ Traffic News ============ */
 var TRAFFIC_KEYWORDS = ["central","western","sheung wan","sai ying pun","kennedy town","sai wan","shek tong tsui","mid-levels","the peak","admiralty","aberdeen","ap lei chau","wong chuk hang","repulse bay","stanley","pok fu lam","deep water bay","shek o","tai tam","wah fu","tin wan","pokfulam","south","southern","中西","南區","中環","西環","上環","西營盤","堅尼地城","香港仔","鴨脷洲","黃竹坑","薄扶林","淺水灣","赤柱","石澳","半山","山頂","金鐘"];
+var TRAFFIC_EXCLUDE = ["ferry","渡輪","船"];
 
 function loadTraffic(){
   var container = document.getElementById("trafficContent");
-  container.innerHTML = '<div class="weather-loading">Loading traffic news...</div>';
+  container.innerHTML = '<div class="weather-loading">載入交通消息...</div>';
   fetch("https://resource.data.one.gov.hk/td/en/specialtrafficnews.xml")
     .then(function(r){ return r.text(); })
     .then(function(txt){
@@ -1181,12 +1182,13 @@ function loadTraffic(){
         if(!text) return;
         var lower = text.toLowerCase();
         var match = TRAFFIC_KEYWORDS.some(function(kw){ return lower.indexOf(kw.toLowerCase()) !== -1; });
-        if(match) html += '<div class="traffic-item">' + text + '</div>';
+        var excluded = TRAFFIC_EXCLUDE.some(function(kw){ return lower.indexOf(kw.toLowerCase()) !== -1; });
+        if(match && !excluded) html += '<div class="traffic-item">' + text + '</div>';
       });
-      container.innerHTML = html || '<div class="traffic-none">No special traffic news for Central, Western &amp; Southern</div>';
+      container.innerHTML = html || '<div class="traffic-none">中西南區目前無特別交通消息 ✓</div>';
     })
     .catch(function(){
-      container.innerHTML = '<div class="weather-loading">Unable to load traffic news.</div>';
+      container.innerHTML = '<div class="weather-loading">無法載入交通消息</div>';
     });
 }
 loadTraffic();
@@ -1559,4 +1561,3 @@ startRealtimeListeners();
 
 </body>
 </html>
-
